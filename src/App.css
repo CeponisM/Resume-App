@@ -1,5 +1,5 @@
 html {
-  background-color: rgb(215, 213, 218);
+  background-color: #d7d5da;
 }
 
 .App {
@@ -10,7 +10,6 @@ html {
 .content {
   width: 90%;
   max-width: 1110px;
-  background-color: gray;
 }
 
 .websites-container {
@@ -36,7 +35,6 @@ html {
 }
 
 .websites-container-content {
-  padding-top: 33px;
   padding-bottom: 33px;
   font-size: 1.5em;
   text-align: center;
@@ -174,6 +172,8 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding-left: 9px;
+  padding-right: 9px;
   gap: 20px;
 }
 
@@ -228,6 +228,7 @@ html {
 
 .name-heading2 {
   text-align: center;
+  z-index: 2;
 }
 
 .websites-container-name {
@@ -251,4 +252,8 @@ html {
   height: 400px;
   padding-top: 9px;
   padding-bottom: 33px;
+}
+
+.google-map-container iframe {
+  z-index: 2;
 }

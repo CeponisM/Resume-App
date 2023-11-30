@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import bcmcImage from './bcmc.png';
 import gauditImage from './gaudit.png';
 import instagramCloneImage from './instagram_clone.png';
+import game from './game.png';
+import gps from './gps.png';
+import starbucks from './starbucks.png';
+import cgol from './cgol.png';
+import mandala from './mandala.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Particles from 'react-tsparticles';
@@ -14,19 +19,49 @@ function App() {
       name: 'BCMC.World',
       url: 'https://BCMC.World/',
       image: bcmcImage,
-      info: 'BCMC World Information...'
+      info: 'Interactive Website'
     },
     {
       name: 'GAudit.org',
       url: 'https://GAudit.org',
       image: gauditImage,
-      info: 'GAudit Information...'
+      info: 'Solidity Smart-Contract Auditing'
+    },
+    {
+      name: 'Game App Concept',
+      url: 'https://MCeponis.com/2',
+      image: game,
+      info: 'Web-App React Game (WIP)'
     },
     {
       name: 'Instagram Clone',
-      url: 'https://instagramclone.example.com',
+      url: 'https://MCeponis.com/1',
       image: instagramCloneImage,
-      info: 'Instagram Clone Information...'
+      info: 'Instagram Clone Full Firebase auth, storage, and DB'
+    },
+    {
+      name: 'Shortest Distance GPS',
+      url: 'https://MCeponis.com/3',
+      image: gps,
+      info: 'Sortest Distance GPS using Apis'
+    },
+    {
+      name: 'Starbucks Clone',
+      url: 'https://mantas-sb-clone.netlify.app/',
+      image: starbucks,
+      info: 'Outdated Starbucks React Clone'
+    },
+    {
+      name: 'Conways Game of Life',
+      url: 'https://MCeponis.com/4',
+      image: cgol,
+      info: 'John Conways Game of Life with React'
+    },
+    {
+      name: 'Mandala Generator',
+      url: 'https://MCeponis.com/5',
+      image: mandala,
+      info: 'Custom Mandala Drawing Application in React (WIP)'
     }
   ];
 
@@ -93,7 +128,7 @@ function App() {
                 enable: true,
                 area: 800, // Density of particles
               },
-              value: 400, // Total number of particles
+              value: 69, // Total number of particles
             },
             opacity: {
               value: 0.5,
@@ -126,55 +161,57 @@ function App() {
         </header>
 
         <div className="websites-container">
-          <div className='heading2'>
+          <div className='name-heading2'>
             <h1>What Have I Built?</h1>
-          </div>
-          <p />
-          <div className='websites-container-list'>
-            {websites.map((site, index) => (
-              <div className="website-preview" key={index}>
-                <a href={site.url} target="_blank" rel="noopener noreferrer">
-                  <img src={site.image} alt={`${site.name} Preview`} className="website-image" />
-                  <div className="info-pane">
-                    <p className="website-title">{site.name}</p>
-                    <p className="website-info">{site.info}</p>
-                  </div>
-                </a>
-              </div>
-            ))}
+            <p />
+            <div className='websites-container-list'>
+              {websites.map((site, index) => (
+                <div className="website-preview" key={index}>
+                  <a href={site.url} target="_blank" rel="noopener noreferrer">
+                    <img src={site.image} alt={`${site.name} Preview`} className="website-image" />
+                    <div className="info-pane">
+                      <p className="website-title">{site.name}</p>
+                      <p className="website-info">{site.info}</p>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className="websites-container-info">
-          <div className='heading2'>
+          <div className='name-heading2'>
             <h1>What Do I Do?</h1>
-          </div>
-          <div className='websites-container-content'>
-            Create fun projects in my spare time
-            <p />
-            Write quality code that is easy to read and extend
-            <p />
-            Create and maintain documentation of everything I make
-            <p />
-            Strictly follow security best practices
-            <p />
-            Never stop learning
+
+            <div className='websites-container-content'>
+              Create fun projects in my spare time
+              <p />
+              Write quality code that is easy to read and extend
+              <p />
+              Create and maintain documentation of everything I make
+              <p />
+              Strictly follow security best practices
+              <p />
+              Never stop learning
+            </div>
           </div>
         </div>
 
         <div className="websites-container">
-          <div className='heading2'>
+          <div className='name-heading2'>
             <h1>What Do I Know?</h1>
-          </div>
-          <div className='websites-container-content2'>
-            <ul>
-              <li>Javascript, PHP, C#, Python and several other programming languages</li>
-              <li>How to design user friendly UX with VueJS, SASS, HTML5 Canvas, and other front end technologies</li>
-              <li>How to use Docker, configure Apache, manage NPM packages, exit VIM, and other Sys Admin tasks</li>
-              <li>How to write efficient queries in both MySQL and MSSQL</li>
-              <li>How to interpret data to make meaningful insights</li>
-              <li>How to ask a great question on Stack Overflow</li>
-            </ul>
+
+            <div className='websites-container-content2'>
+              <ul>
+                <li>Javascript, PHP, C#, Python and several other programming languages</li>
+                <li>How to design user friendly UX with VueJS, SASS, HTML5 Canvas, and other front end technologies</li>
+                <li>How to use Docker, configure Apache, manage NPM packages, exit VIM, and other Sys Admin tasks</li>
+                <li>How to write efficient queries in both MySQL and MSSQL</li>
+                <li>How to interpret data to make meaningful insights</li>
+                <li>How to ask a great question on Stack Overflow</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -188,14 +225,15 @@ function App() {
         </header>
 
         <div className="websites-container">
-          <div className='websites-container-name'>
-            What Is My Contact?
-          </div>
-          <div className='websites-container-content2'>
-            <div className='email'>
-              <a href="mailto:MantasCeponis5@gmail.com">
-                <p id="email" class="text-center">MantasCeponis5@gmail.com</p>
-              </a>
+          <div className='name-heading2'>
+            <h1>What Is My Contact?</h1>
+
+            <div className='websites-container-content2'>
+              <div className='email'>
+                <a href="mailto:MantasCeponis5@gmail.com">
+                  <p id="email" class="text-center">MantasCeponis5@gmail.com</p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
