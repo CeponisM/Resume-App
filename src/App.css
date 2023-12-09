@@ -1,5 +1,5 @@
 html {
-  background-color: #d7d5da;
+  background-color: #5C6B73;
 }
 
 .App {
@@ -21,10 +21,26 @@ html {
   gap: 20px;
   padding-top: 33px;
   padding-bottom: 33px;
+  background-color: #5C6B73;
 }
 
 .websites-container-info {
-  border: 44px solid black;
+  border: 44px solid #253237;
+  background-color: #5C6B73;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 33px;
+  padding-bottom: 33px;
+  z-index: 2;
+}
+
+.websites-container-info2 {
+  border: 44px solid #253237;
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -37,13 +53,47 @@ html {
 .websites-container-content {
   padding-bottom: 33px;
   font-size: 1.5em;
+  z-index: 2;
   text-align: center;
+}
+
+.websites-container-content ul {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.websites-container-content ul li {
+  /* Styling for each list item */
+  margin-bottom: 21px;
+  position: relative;
+  cursor: default;
+  transition: all 0.3s ease;
+  color: #253237;
+}
+
+.websites-container-content ul li:before {
+  /* Custom bullet style */
+  position: absolute;
+  left: 0;
+  color: #253237; /* Theme color for bullet */
+  font-size: 1.5rem;
+  line-height: 1; /* Align bullet with text */
+}
+
+.websites-container-content ul li:hover {
+  /* Animation on hover */
+  transform: translateX(10px);
+  color: #9DB4C0; /* Darker color on hover */
 }
 
 .websites-container-content2 {
   padding-bottom: 33px;
   font-size: 1.5em;
   text-align: left;
+  z-index: 2;
+  background-color: #5C6B73;
 }
 
 .websites-container-content2 ul {
@@ -67,7 +117,7 @@ html {
   content: '•';
   position: absolute;
   left: 0;
-  color: #007bff; /* Theme color for bullet */
+  color: #9DB4C0; /* Theme color for bullet */
   font-size: 1.5rem;
   line-height: 1; /* Align bullet with text */
 }
@@ -75,16 +125,21 @@ html {
 .websites-container-content2 ul li:hover {
   /* Animation on hover */
   transform: translateX(10px);
-  color: #0056b3; /* Darker color on hover */
+  color: #9DB4C0; /* Darker color on hover */
 }
 
 .website-preview {
   width: 300px; /* Fixed width for uniform size */
-  border: 1px solid #ccc;
+  border: 1px solid #9DB4C0;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.website-preview:hover {
+  border: 1px solid #E0FBFC;
 }
 
 .website-image {
@@ -98,10 +153,10 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  background-color: #253237;
+  color: #C2DFE3;
   padding: 10px;
-  transform: translateY(100%);
+  transform: translateY(93%);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -161,10 +216,12 @@ html {
 
 .email a {
   text-decoration: none;
+  color: #253237;
+  transition: all 0.3s ease;
 }
 
 .email a:hover {
-  color: #333; /* Darker color for GitHub hover */
+  color: #C2DFE3; /* Darker color for GitHub hover */
   text-decoration: none;
 }
 
@@ -175,6 +232,7 @@ html {
   padding-left: 9px;
   padding-right: 9px;
   gap: 20px;
+  z-index: 2;
 }
 
 .social-link {
@@ -188,16 +246,22 @@ html {
   z-index: 2;
 }
 
+.social-link-footer {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
 .social-link span {
   margin-left: 8px;
 }
 
 .github-link:hover {
-  color: #333; /* Darker color for GitHub hover */
+  color: #C2DFE3; /* Darker color for GitHub hover */
 }
 
 .linkedin-link:hover {
-  color: #0072b1; /* LinkedIn brand color for hover */
+  color: #C2DFE3; /* LinkedIn brand color for hover */
 }
 
 .social-link .faGithub, .social-link .faLinkedin {
@@ -214,11 +278,15 @@ html {
 }
 
 .name-heading {
-  background-color: black;
+  background-color: #253237;
   padding-top: 33px;
   padding-bottom: 33px;
-  color: white;
+  color: #E0FBFC;
   text-align: center;
+}
+
+.name-heading a {
+  color: #9DB4C0;
 }
 
 .name-heading h2 {
@@ -229,11 +297,12 @@ html {
 .name-heading2 {
   text-align: center;
   z-index: 2;
+  color: #253237;
 }
 
 .websites-container-name {
   padding-top: 44px;
-  color: black;
+  color: #253237;
   text-align: center;
   font-size: 2em;
 }

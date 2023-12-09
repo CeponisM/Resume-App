@@ -74,6 +74,9 @@ function App() {
 
   };
 
+  // Console Hello
+  console.log("Hello!");
+
   return (
     <div className="App">
       <Particles
@@ -110,7 +113,7 @@ function App() {
           },
           particles: {
             color: {
-              value: "#ffffff", // Snow particles are white
+              value: "#E0FBFC", // Snow particles are white
             },
             links: {
               enable: false, // Disable particle linking
@@ -152,10 +155,10 @@ function App() {
                 <FontAwesomeIcon icon={faGithub} />
                 <span>CeponisM on GitHub</span>
               </a>
-              <a href="https://www.linkedin.com/in/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
+              {/* <a href="https://www.linkedin.com/in/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
                 <FontAwesomeIcon icon={faLinkedin} />
                 <span>CeponisM on LinkedIn</span>
-              </a>
+              </a> */}
             </div>
           </div>
         </header>
@@ -185,15 +188,17 @@ function App() {
             <h1>What Do I Do?</h1>
 
             <div className='websites-container-content'>
-              Create fun projects in my spare time
+            <ul>
+            <li>Create fun projects in my spare time</li>
               <p />
-              Write quality code that is easy to read and extend
+              <li>Write quality code that is easy to read and extend</li>
               <p />
-              Create and maintain documentation of everything I make
+              <li>Create and maintain documentation of everything I make</li>
               <p />
-              Strictly follow security best practices
+              <li>Strictly follow security best practices</li>
               <p />
-              Never stop learning
+              <li>Never stop learning</li>
+            </ul>
             </div>
           </div>
         </div>
@@ -204,8 +209,8 @@ function App() {
 
             <div className='websites-container-content2'>
               <ul>
-                <li>Javascript, PHP, C#, Python and several other programming languages</li>
-                <li>How to design user friendly UX with VueJS, SASS, HTML5 Canvas, and other front end technologies</li>
+                <li>Javascript, PHP, Java, C++, Python, Solidity and several other programming languages</li>
+                <li>How to design user friendly UX with ReactJS, SASS, HTML5 Canvas, and other front end technologies</li>
                 <li>How to use Docker, configure Apache, manage NPM packages, exit VIM, and other Sys Admin tasks</li>
                 <li>How to write efficient queries in both MySQL and MSSQL</li>
                 <li>How to interpret data to make meaningful insights</li>
@@ -215,11 +220,11 @@ function App() {
           </div>
         </div>
 
-        <header className="websites-container-info">
+        <header className="websites-container-info2">
           <div className='name-heading2'>
             <h1>Where Am I?</h1>
             <div className="google-map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611268.9670127521!2d-86.6380249552102!3d44.62662645152815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e12b147b76f25%3A0xaad3e15fc5e80c36!2sBenzonia%20Township%2C%20MI!5e0!3m2!1sen!2sus!4v1701056081777!5m2!1sen!2sus" width="600" height="390" style={{border: 0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611268.9670127521!2d-86.6380249552102!3d44.62662645152815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e12b147b76f25%3A0xaad3e15fc5e80c36!2sBenzonia%20Township%2C%20MI!5e0!3m2!1sen!2sus!4v1701056081777!5m2!1sen!2sus" width="600" height="390" style={{border: 0}} allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </header>
@@ -241,6 +246,7 @@ function App() {
         <header className="App-header">
           <div className='name-heading'>
             <h1>Thank you for reading</h1>
+            <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
           </div>
         </header>
       </div>
