@@ -43,7 +43,7 @@ function App() {
       name: 'Shortest Distance GPS',
       url: 'https://MCeponis.com/3',
       image: gps,
-      info: 'Sortest Distance GPS using Apis'
+      info: 'Sortest Distance GPS using APIs'
     },
     {
       name: 'Starbucks Clone',
@@ -155,7 +155,7 @@ function App() {
                 <FontAwesomeIcon icon={faGithub} />
                 <span>CeponisM on GitHub</span>
               </a>
-              {/* <a href="https://www.linkedin.com/in/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
+              {/* <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
                 <FontAwesomeIcon icon={faLinkedin} />
                 <span>CeponisM on LinkedIn</span>
               </a> */}
@@ -209,10 +209,10 @@ function App() {
 
             <div className='websites-container-content2'>
               <ul>
-                <li>Javascript, PHP, Java, C++, Python, Solidity and several other programming languages</li>
-                <li>How to design user friendly UX with ReactJS, SASS, HTML5 Canvas, and other front end technologies</li>
-                <li>How to use Docker, configure Apache, manage NPM packages, exit VIM, and other Sys Admin tasks</li>
-                <li>How to write efficient queries in both MySQL and MSSQL</li>
+                <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, Solidity and several other programming languages</li>
+                <li>How to design user friendly UX with <b>ReactJS</b>, <b>SASS</b>, <b>HTML5 Canvas</b>, and other front end technologies</li>
+                <li>How to use <b>Docker</b>, configure <b>Apache</b>, manage NPM packages, exit VIM, and other Sys Admin tasks</li>
+                <li>How to write efficient queries in both <b>MySQL</b> and <b>MSSQL</b></li>
                 <li>How to interpret data to make meaningful insights</li>
                 <li>How to ask a great question on Stack Overflow</li>
               </ul>
