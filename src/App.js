@@ -261,7 +261,7 @@ function App() {
         <header className="App-header">
           <div className='name-heading'>
             <h1>Thank you for reading</h1>
-            <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
+            <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
           </div>
         </header>
       </div>
