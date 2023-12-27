@@ -7,6 +7,8 @@ import gps from './gps.png';
 import starbucks from './starbucks.png';
 import cgol from './cgol.png';
 import mandala from './mandala.png';
+import chat from './chat.png';
+import motionExtraction from './motionExtraction.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Particles from 'react-tsparticles';
@@ -62,6 +64,18 @@ function App() {
       url: 'https://MCeponis.com/5',
       image: mandala,
       info: 'Custom Mandala Drawing Application in React (WIP)'
+    },
+    {
+      name: 'Motion Extraction',
+      url: 'https://MCeponis.com/6',
+      image: motionExtraction,
+      info: 'Camera motion-extraction from concepts found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>, mobile supported'
+    },
+    {
+      name: 'Online Chat',
+      url: 'https://MCeponis.com/7',
+      image: chat,
+      info: 'Full online authenticated chat, including AI chat bot'
     }
   ];
 
@@ -169,12 +183,12 @@ function App() {
             <p />
             <div className='websites-container-list'>
               {websites.map((site, index) => (
-                <div className="website-preview" key={index}>
+                <div className="website-preview" key={site.name || index}>
                   <a href={site.url} target="_blank" rel="noopener noreferrer">
                     <img src={site.image} alt={`${site.name} Preview`} className="website-image" />
                     <div className="info-pane">
                       <p className="website-title">{site.name}</p>
-                      <p className="website-info">{site.info}</p>
+                      <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
                     </div>
                   </a>
                 </div>
@@ -188,17 +202,17 @@ function App() {
             <h1>What Do I Do?</h1>
 
             <div className='websites-container-content'>
-            <ul>
-            <li>Create fun projects in my spare time</li>
-              <p />
-              <li>Write quality code that is easy to read and extend</li>
-              <p />
-              <li>Create and maintain documentation of everything I make</li>
-              <p />
-              <li>Strictly follow security best practices</li>
-              <p />
-              <li>Never stop learning</li>
-            </ul>
+              <ul>
+                <li>Create fun projects in my spare time</li>
+                <p />
+                <li>Write quality code that is easy to read and extend</li>
+                <p />
+                <li>Create and maintain documentation of everything I make</li>
+                <p />
+                <li>Strictly follow security best practices</li>
+                <p />
+                <li>Never stop learning</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -210,10 +224,11 @@ function App() {
             <div className='websites-container-content2'>
               <ul>
                 <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, Solidity and several other programming languages</li>
-                <li>How to design user friendly UX with <b>ReactJS</b>, <b>SASS</b>, <b>HTML5 Canvas</b>, and other front end technologies</li>
-                <li>How to use <b>Docker</b>, configure <b>Apache</b>, manage NPM packages, exit VIM, and other Sys Admin tasks</li>
-                <li>How to write efficient queries in both <b>MySQL</b> and <b>MSSQL</b></li>
+                <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
+                <li>Experience in integrating third-party <b>APIs</b> and services</li>
+                <li>Strong problem-solving skills and analytical thinking</li>
                 <li>How to interpret data to make meaningful insights</li>
+                <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
                 <li>How to ask a great question on Stack Overflow</li>
               </ul>
             </div>
@@ -224,7 +239,7 @@ function App() {
           <div className='name-heading2'>
             <h1>Where Am I?</h1>
             <div className="google-map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611268.9670127521!2d-86.6380249552102!3d44.62662645152815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e12b147b76f25%3A0xaad3e15fc5e80c36!2sBenzonia%20Township%2C%20MI!5e0!3m2!1sen!2sus!4v1701056081777!5m2!1sen!2sus" width="600" height="390" style={{border: 0}} allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611268.9670127521!2d-86.6380249552102!3d44.62662645152815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e12b147b76f25%3A0xaad3e15fc5e80c36!2sBenzonia%20Township%2C%20MI!5e0!3m2!1sen!2sus!4v1701056081777!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </header>
