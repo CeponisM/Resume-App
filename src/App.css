@@ -180,7 +180,7 @@ html {
 .parallax-container {
   position: relative;
   overflow: hidden;
-  height: 100vh; /* This can be adjusted based on your design */
+  height: 100vh;
 }
 
 .parallax-layer {

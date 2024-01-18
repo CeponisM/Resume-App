@@ -169,10 +169,10 @@ function App() {
                 <FontAwesomeIcon icon={faGithub} />
                 <span>CeponisM on GitHub</span>
               </a>
-              {/* <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
+              <a href="https://www.linkedin.com/in/mantas-%C4%8Deponis-434842173/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
                 <FontAwesomeIcon icon={faLinkedin} />
                 <span>CeponisM on LinkedIn</span>
-              </a> */}
+              </a>
             </div>
           </div>
         </header>
