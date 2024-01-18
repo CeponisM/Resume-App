@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import bcmcImage from './bcmc.png';
 import gauditImage from './gaudit.png';
 import instagramCloneImage from './instagram_clone.png';
@@ -239,7 +239,7 @@ function App() {
           <div className='name-heading2'>
             <h1>Where Am I?</h1>
             <div className="google-map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d611268.9670127521!2d-86.6380249552102!3d44.62662645152815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e12b147b76f25%3A0xaad3e15fc5e80c36!2sBenzonia%20Township%2C%20MI!5e0!3m2!1sen!2sus!4v1701056081777!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23821.495761606224!2d-88.13315598861273!3d41.72727313944361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e59c0f0505659%3A0x8fa49fb316058b56!2sNaperville%2C%20IL%2060565!5e0!3m2!1sen!2sus!4v1705539960177!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </header>
