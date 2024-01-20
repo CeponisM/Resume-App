@@ -239,7 +239,7 @@ function App() {
           <div className='name-heading2'>
             <h1>Where Am I?</h1>
             <div className="google-map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23821.495761606224!2d-88.13315598861273!3d41.72727313944361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e59c0f0505659%3A0x8fa49fb316058b56!2sNaperville%2C%20IL%2060565!5e0!3m2!1sen!2sus!4v1705539960177!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </header>
