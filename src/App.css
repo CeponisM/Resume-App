@@ -1,5 +1,29 @@
+/* Light theme vars*/
+:root[data-theme="light"] {
+  --background-color: #5C6B73;
+  --heading-color: #253237;
+  --container-color: #5C6B73;
+  --text-color: #333;
+  --link-color: #007bff;
+  --border-color: #ddd;
+  --image-border-color: #ddd;
+}
+
+/* Dark theme vars*/
+:root[data-theme="dark"] {
+  --background-color: #121212;
+  --heading-color: #0e1416;
+  --container-color: #253237;
+  --text-color: #eee;
+  --link-color: #1a91da;
+  --border-color: #444;
+  --image-border-color: #666;
+}
+
 html {
-  background-color: #5C6B73;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .App {
@@ -21,12 +45,12 @@ html {
   gap: 20px;
   padding-top: 33px;
   padding-bottom: 33px;
-  background-color: #5C6B73;
+  background-color: var(--container-color);
 }
 
 .websites-container-info {
-  border: 44px solid #253237;
-  background-color: #5C6B73;
+  border: 44px solid var(--heading-color);
+  background-color: var(--container-color);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -39,7 +63,8 @@ html {
 }
 
 .websites-container-info2 {
-  border: 44px solid #253237;
+  border: 44px solid  var(--heading-color);
+  background-color: var(--container-color);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -70,14 +95,14 @@ html {
   position: relative;
   cursor: default;
   transition: all 0.3s ease;
-  color: #253237;
+  color: var(--heading-color);;
 }
 
 .websites-container-content ul li:before {
   /* Custom bullet style */
   position: absolute;
   left: 0;
-  color: #253237; /* Theme color for bullet */
+  color: var(--heading-color);; /* Theme color for bullet */
   font-size: 1.5rem;
   line-height: 1; /* Align bullet with text */
 }
@@ -93,7 +118,7 @@ html {
   font-size: 1.5em;
   text-align: left;
   z-index: 2;
-  background-color: #5C6B73;
+  background-color: var(--container-color);
 }
 
 .websites-container-content2 ul {
@@ -153,7 +178,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #253237;
+  background-color: var(--heading-color);;
   color: #C2DFE3;
   padding: 10px;
   transform: translateY(93%);
@@ -218,7 +243,7 @@ html {
 
 .email a {
   text-decoration: none;
-  color: #253237;
+  color: var(--heading-color);;
   transition: all 0.3s ease;
 }
 
@@ -280,7 +305,7 @@ html {
 }
 
 .name-heading {
-  background-color: #253237;
+  background-color: var(--heading-color);
   padding-top: 33px;
   padding-bottom: 33px;
   color: #E0FBFC;
@@ -299,12 +324,12 @@ html {
 .name-heading2 {
   text-align: center;
   z-index: 2;
-  color: #253237;
+  color: var(--heading-color);;
 }
 
 .websites-container-name {
   padding-top: 44px;
-  color: #253237;
+  color: var(--heading-color);;
   text-align: center;
   font-size: 2em;
 }

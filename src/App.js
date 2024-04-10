@@ -11,8 +11,10 @@ import chat from './chat.png';
 import motionExtraction from './motionExtraction.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import Particles from 'react-tsparticles';
+// import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
+import { ThemeProvider } from './ThemeContext';
+import DarkModeToggle from './DarkModeToggle';
 import './App.css';
 
 function App() {
@@ -75,7 +77,7 @@ function App() {
       name: 'Online Chat',
       url: 'https://MCeponis.com/7',
       image: chat,
-      info: 'Full online authenticated chat, including AI chat bot'
+      info: 'Full online authenticated chat, including GPT AI chat bot'
     }
   ];
 
@@ -92,8 +94,11 @@ function App() {
   console.log("Hello!");
 
   return (
-    <div className="App">
-      <Particles
+    <ThemeProvider>
+      <div>
+        <div className="App">
+          {/* SNOW winter effect */}
+          {/* <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
@@ -159,113 +164,117 @@ function App() {
           },
           detectRetina: true,
         }}
-      />
-      <div className="content">
-        <header className="App-header">
-          <div className='name-heading'>
-            <h2>Mantas Čeponis</h2>
-            <div className="social-links">
-              <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
-                <FontAwesomeIcon icon={faGithub} />
-                <span>CeponisM on GitHub</span>
-              </a>
-              <a href="https://www.linkedin.com/in/mantas-%C4%8Deponis-434842173/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
-                <FontAwesomeIcon icon={faLinkedin} />
-                <span>CeponisM on LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </header>
-
-        <div className="websites-container">
-          <div className='name-heading2'>
-            <h1>What Have I Built?</h1>
-            <p />
-            <div className='websites-container-list'>
-              {websites.map((site, index) => (
-                <div className="website-preview" key={site.name || index}>
-                  <a href={site.url} target="_blank" rel="noopener noreferrer">
-                    <img src={site.image} alt={`${site.name} Preview`} className="website-image" />
-                    <div className="info-pane">
-                      <p className="website-title">{site.name}</p>
-                      <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
-                    </div>
+      /> */}
+          <div className="content">
+            <header className="App-header">
+              <DarkModeToggle />
+              <div className='name-heading'>
+                <h2>Mantas Čeponis</h2>
+                <div className="social-links">
+                  <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
+                    <FontAwesomeIcon icon={faGithub} />
+                    <span>CeponisM on GitHub</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/mantas-%C4%8Deponis-434842173/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
+                    <FontAwesomeIcon icon={faLinkedin} />
+                    <span>CeponisM on LinkedIn</span>
                   </a>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+              </div>
+            </header>
 
-        <div className="websites-container-info">
-          <div className='name-heading2'>
-            <h1>What Do I Do?</h1>
-
-            <div className='websites-container-content'>
-              <ul>
-                <li>Create fun projects in my spare time</li>
+            <div className="websites-container">
+              <div className='name-heading2'>
+                <h1>What Have I Built?</h1>
                 <p />
-                <li>Write quality code that is easy to read and extend</li>
-                <p />
-                <li>Create and maintain documentation of everything I make</li>
-                <p />
-                <li>Strictly follow security best practices</li>
-                <p />
-                <li>Never stop learning</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="websites-container">
-          <div className='name-heading2'>
-            <h1>What Do I Know?</h1>
-
-            <div className='websites-container-content2'>
-              <ul>
-                <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, Solidity and several other programming languages</li>
-                <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
-                <li>Experience in integrating third-party <b>APIs</b> and services</li>
-                <li>Strong problem-solving skills and analytical thinking</li>
-                <li>How to interpret data to make meaningful insights</li>
-                <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
-                <li>How to ask a great question on Stack Overflow</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <header className="websites-container-info2">
-          <div className='name-heading2'>
-            <h1>Where Am I?</h1>
-            <div className="google-map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </header>
-
-        <div className="websites-container">
-          <div className='name-heading2'>
-            <h1>What Is My Contact?</h1>
-
-            <div className='websites-container-content2'>
-              <div className='email'>
-                <a href="mailto:MantasCeponis5@gmail.com">
-                  <p id="email" class="text-center">MantasCeponis5@gmail.com</p>
-                </a>
+                <div className='websites-container-list'>
+                  {websites.map((site, index) => (
+                    <div className="website-preview" key={site.name || index}>
+                      <a href={site.url} target="_blank" rel="noopener noreferrer">
+                        <img src={site.image} alt={`${site.name} Preview`} className="website-image" />
+                        <div className="info-pane">
+                          <p className="website-title">{site.name}</p>
+                          <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+
+            <div className="websites-container-info">
+              <div className='name-heading2'>
+                <h1>What Do I Do?</h1>
+
+                <div className='websites-container-content'>
+                  <ul>
+                    <li>Create fun projects in my spare time</li>
+                    <p />
+                    <li>Write quality code that is easy to read and extend</li>
+                    <p />
+                    <li>Create and maintain documentation of everything I make</li>
+                    <p />
+                    <li>Strictly follow security best practices</li>
+                    <p />
+                    <li>Never stop learning</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="websites-container">
+              <div className='name-heading2'>
+                <h1>What Do I Know?</h1>
+
+                <div className='websites-container-content2'>
+                  <ul>
+                    <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
+                    <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
+                    <li>Experience in integrating third-party <b>APIs</b> and services</li>
+                    <li><b>CompTIA Security+</b> certified and currently studying for CompTIA CySA+</li>
+                    <li>Strong problem-solving skills and analytical thinking</li>
+                    <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
+                    <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
+                    <li>How to ask a great question on Stack Overflow</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <header className="websites-container-info2">
+              <div className='name-heading2'>
+                <h1>Where Am I?</h1>
+                <div className="google-map-container">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
+            </header>
+
+            <div className="websites-container">
+              <div className='name-heading2'>
+                <h1>What Is My Contact?</h1>
+
+                <div className='websites-container-content2'>
+                  <div className='email'>
+                    <a href="mailto:MantasCeponis5@gmail.com">
+                      <p id="email" class="text-center">MantasCeponis5@gmail.com</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <header className="App-header">
+              <div className='name-heading'>
+                <h1>Thank you for reading</h1>
+                <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
+              </div>
+            </header>
           </div>
         </div>
-
-        <header className="App-header">
-          <div className='name-heading'>
-            <h1>Thank you for reading</h1>
-            <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
-          </div>
-        </header>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
