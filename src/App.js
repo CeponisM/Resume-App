@@ -23,7 +23,7 @@ function App() {
       name: 'BCMC.World',
       url: 'https://BCMC.World/',
       image: bcmcImage,
-      info: 'Interactive Website'
+      info: 'Interactive Website, GPU Intensive'
     },
     {
       name: 'GAudit.org',
@@ -91,7 +91,7 @@ function App() {
   };
 
   // Console Hello
-  console.log("Hello!");
+  console.log("Hello and welcome!");
 
   return (
     <ThemeProvider>
@@ -232,7 +232,7 @@ function App() {
                     <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
                     <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
                     <li>Experience in integrating third-party <b>APIs</b> and services</li>
-                    <li><b>CompTIA Security+</b> certified and currently studying for CompTIA CySA+</li>
+                    <li><b>CompTIA Security+</b> certified, studying for CompTIA CySA+</li>
                     <li>Strong problem-solving skills and analytical thinking</li>
                     <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
                     <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
