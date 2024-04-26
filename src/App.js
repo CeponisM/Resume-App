@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import bcmcImage from './bcmc.png';
 import gauditImage from './gaudit.png';
 import instagramCloneImage from './instagram_clone.png';
@@ -9,15 +9,22 @@ import cgol from './cgol.png';
 import mandala from './mandala.png';
 import chat from './chat.png';
 import motionExtraction from './motionExtraction.png';
+import ctiaSECcert from './certifications/ctiaSECcert.png';
+import dod101Codingcert from './certifications/dod101Codingcert.png';
+import pendingApproval from './certifications/pendingApproval.png';
+import ciscoCBROPScert from './courses/ciscoCBROPScert.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
 import { ThemeProvider } from './ThemeContext';
 import DarkModeToggle from './DarkModeToggle';
+import { CSSTransition } from 'react-transition-group';
 import './App.css';
 
 function App() {
+  const [selectedImg, setSelectedImg] = useState(null);
+
   const websites = [
     {
       name: 'BCMC.World',
@@ -78,6 +85,32 @@ function App() {
       url: 'https://MCeponis.com/7',
       image: chat,
       info: 'Full online authenticated chat, including GPT AI chat bot'
+    }
+  ];
+
+  const certificates = [
+    {
+      name: 'CompTIA Security+',
+      image: ctiaSECcert,
+      info: 'CompTIA Security+ ce 701'
+    },
+    {
+      name: 'ISC2 CC',
+      image: pendingApproval,
+      info: 'ISC2 Certified in Cybersecurity'
+    },
+    {
+      name: 'DOD 101 Coding',
+      image: dod101Codingcert,
+      info: 'DOD 101 Coding Public Version'
+    }
+  ];
+
+  const courses = [
+    {
+      name: 'Cisco CBROPS',
+      image: ciscoCBROPScert,
+      info: 'Understanding Cisco Cybersecurity Operations Fundamentals (CBROPS)'
     }
   ];
 
@@ -209,6 +242,8 @@ function App() {
 
                 <div className='websites-container-content'>
                   <ul>
+                    <li>Learn as much as I can, and then some more</li>
+                    <p />
                     <li>Create fun projects in my spare time</li>
                     <p />
                     <li>Write quality code that is easy to read and extend</li>
@@ -232,13 +267,66 @@ function App() {
                     <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
                     <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
                     <li>Experience in integrating third-party <b>APIs</b> and services</li>
-                    <li><b>CompTIA Security+</b> certified, studying for CompTIA CySA+</li>
+                    <li><b>Cybersecurity</b> best practices</li>
                     <li>Strong problem-solving skills and analytical thinking</li>
                     <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
                     <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
                     <li>How to ask a great question on Stack Overflow</li>
                   </ul>
                 </div>
+              </div>
+            </div>
+
+            <header className="websites-container-info2">
+              <div className='name-heading2'>
+                <h1>What Certificates Do I Have?</h1>
+                <p />
+                <div className='websites-container-list'>
+                  {certificates.map((site, index) => (
+                    <div className="website-preview" key={site.name || index}>
+                      <img src={site.image} alt={`${site.name} Preview`} className="website-image" onClick={() => setSelectedImg(site.image)} />
+                      <div className="info-pane">
+                        <p className="website-title">{site.name}</p>
+                        <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  *Currently Studying for CompTIA Cybersecurity Analyst (CYSA) Certification
+                </div>
+              </div>
+            </header>
+
+            <div className="websites-container">
+              <div className='name-heading2'>
+                <h1>What Additional Courses have I completed?</h1>
+                <p />
+                <div className='websites-container-list'>
+                  {courses.map((site, index) => (
+                    <div className="website-preview" key={site.name || index}>
+                      <img src={site.image} alt={`${site.name} Preview`} className="website-image" onClick={() => setSelectedImg(site.image)} />
+                      <div className="info-pane">
+                        <p className="website-title">{site.name}</p>
+                        <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <CSSTransition
+                  in={selectedImg !== null}
+                  timeout={300}
+                  classNames="overlay"
+                  unmountOnExit
+                  onEnter={() => document.body.style.overflow = 'hidden'}
+                  onExited={() => document.body.style.overflow = 'auto'}
+                >
+                  <div className="overlay" onClick={() => setSelectedImg(null)}>
+                    <img src={selectedImg} alt="Enlarged preview" className="enlarged-image" />
+                  </div>
+                </CSSTransition>
+
               </div>
             </div>
 

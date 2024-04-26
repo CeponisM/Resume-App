@@ -65,9 +65,10 @@ html {
 }
 
 .websites-container-info2 {
-  border: 44px solid  var(--heading-color);
+  border: 44px solid var(--heading-color);
   background-color: var(--container-color);
   position: relative;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -104,18 +105,22 @@ html {
   /* Custom bullet style */
   position: absolute;
   left: 0;
-  color: var(--heading-text-color); /* Theme color for bullet */
+  color: var(--heading-text-color);
+  /* Theme color for bullet */
   font-size: 1.5rem;
-  line-height: 1; /* Align bullet with text */
+  line-height: 1;
+  /* Align bullet with text */
 }
 
 .websites-container-content ul li:hover {
   /* Animation on hover */
   transform: translateX(10px);
-  color: #9DB4C0; /* Darker color on hover */
+  color: #9DB4C0;
+  /* Darker color on hover */
 }
 
 .websites-container-content2 {
+  position: relative;
   padding-bottom: 33px;
   font-size: 1.5em;
   text-align: left;
@@ -144,19 +149,23 @@ html {
   content: '•';
   position: absolute;
   left: 0;
-  color: #9DB4C0; /* Theme color for bullet */
+  color: #9DB4C0;
+  /* Theme color for bullet */
   font-size: 1.5rem;
-  line-height: 1; /* Align bullet with text */
+  line-height: 1;
+  /* Align bullet with text */
 }
 
 .websites-container-content2 ul li:hover {
   /* Animation on hover */
   transform: translateX(10px);
-  color: #9DB4C0; /* Darker color on hover */
+  color: #9DB4C0;
+  /* Darker color on hover */
 }
 
 .website-preview {
-  width: 300px; /* Fixed width for uniform size */
+  width: 300px;
+  /* Fixed width for uniform size */
   border: 1px solid #9DB4C0;
   border-radius: 10px;
   overflow: hidden;
@@ -171,8 +180,60 @@ html {
 
 .website-image {
   width: 100%;
-  height: 200px; /* Fixed height for uniform size */
-  object-fit: cover; /* Ensures image covers the area nicely */
+  height: 200px;
+  /* Fixed height for uniform size */
+  object-fit: cover;
+  /* Ensures image covers the area nicely */
+  transition: transform 0.2s ease;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.overlay-enter {
+  opacity: 0;
+}
+
+.overlay-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.overlay-exit {
+  opacity: 1;
+}
+
+.overlay-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.enlarged-image {
+  max-width: 90%;
+  max-height: 90%;
+  animation: scaleUp 0.3s ease-in-out;
+  z-index: 99;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 .info-pane {
@@ -250,7 +311,8 @@ html {
 }
 
 .email a:hover {
-  color: #C2DFE3; /* Darker color for GitHub hover */
+  color: #C2DFE3;
+  /* Darker color for GitHub hover */
   text-decoration: none;
 }
 
@@ -286,14 +348,17 @@ html {
 }
 
 .github-link:hover {
-  color: #C2DFE3; /* Darker color for GitHub hover */
+  color: #C2DFE3;
+  /* Darker color for GitHub hover */
 }
 
 .linkedin-link:hover {
-  color: #C2DFE3; /* LinkedIn brand color for hover */
+  color: #C2DFE3;
+  /* LinkedIn brand color for hover */
 }
 
-.social-link .faGithub, .social-link .faLinkedin {
+.social-link .faGithub,
+.social-link .faLinkedin {
   font-size: 24px;
 }
 
@@ -303,7 +368,8 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1; /* Behind other content */
+  z-index: 1;
+  /* Behind other content */
 }
 
 .name-heading {
@@ -324,8 +390,8 @@ html {
 }
 
 .name-heading2 {
+  position: relative;
   text-align: center;
-  z-index: 2;
   color: var(--heading-text-color);
 }
 
@@ -346,11 +412,18 @@ html {
 }
 
 .google-map-container {
+  position: relative;
   padding-top: 9px;
   padding-bottom: 33px;
 }
 
 .google-map-container iframe {
+  position: relative;
+  z-index: 2;
+}
+
+.iframe {
+  position: relative;
   z-index: 2;
 }
 
