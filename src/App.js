@@ -10,7 +10,10 @@ import mandala from './mandala.png';
 import chat from './chat.png';
 import motionExtraction from './motionExtraction.png';
 import ctiaSECcert from './certifications/ctiaSECcert.png';
+import isc2CCcert from './certifications/isc2CCcert.jpg';
 import dod101Codingcert from './certifications/dod101Codingcert.png';
+import dod101CritIPPVcert from './certifications/dod101CritIPPVcert.jpg';
+import dod101ReverseEPVcert from './certifications/dod101ReverseEPVcert.jpg';
 import pendingApproval from './certifications/pendingApproval.png';
 import ciscoCBROPScert from './courses/ciscoCBROPScert.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -60,7 +63,7 @@ function App() {
       name: 'Starbucks Clone',
       url: 'https://mantas-sb-clone.netlify.app/',
       image: starbucks,
-      info: 'Outdated Starbucks React Clone'
+      info: 'Outdated Starbucks React Clone (Missing images)'
     },
     {
       name: 'Conways Game of Life',
@@ -96,13 +99,23 @@ function App() {
     },
     {
       name: 'ISC2 CC',
-      image: pendingApproval,
+      image: isc2CCcert,
       info: 'ISC2 Certified in Cybersecurity'
     },
     {
       name: 'DOD 101 Coding',
       image: dod101Codingcert,
       info: 'DOD 101 Coding Public Version'
+    },
+    {
+      name: 'DOD 101 Critical Infrastructure',
+      image: dod101CritIPPVcert,
+      info: '101 Critical Infrastructure Protection for the Public'
+    },
+    {
+      name: 'DOD 101 Reverse Engineering',
+      image: dod101ReverseEPVcert,
+      info: '101 Reverse Engineering for the Public'
     }
   ];
 
@@ -114,14 +127,14 @@ function App() {
     }
   ];
 
-  const particlesInit = async (main) => {
+  // const particlesInit = async (main) => {
 
-    await loadFull(main);
-  };
+  //   await loadFull(main);
+  // };
 
-  const particlesLoaded = (container) => {
+  // const particlesLoaded = (container) => {
 
-  };
+  // };
 
   // Console Hello
   console.log("Hello and welcome!");

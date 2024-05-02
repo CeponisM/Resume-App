@@ -3,6 +3,7 @@
   --background-color: #899faa;
   --heading-color: #253237;
   --heading-text-color: #253237;
+  --content-item-color: #9DB4C0;
   --container-color: #899faa;
   --text-color: #333;
   --link-color: #007bff;
@@ -15,6 +16,7 @@
   --background-color: #121212;
   --heading-color: #0e1416;
   --heading-text-color: #050808;
+  --content-item-color: #9DB4C0;
   --container-color: rgb(37, 50, 54);
   --text-color: #eee;
   --link-color: #1a91da;
@@ -115,8 +117,16 @@ html {
 .websites-container-content ul li:hover {
   /* Animation on hover */
   transform: translateX(10px);
-  color: #9DB4C0;
-  /* Darker color on hover */
+  /* Color on hover */
+  color: var(--hover-color); 
+}
+
+:root[data-theme="light"] {
+  --hover-color: #0e1416;
+}
+
+:root[data-theme="dark"] {
+  --hover-color: var(--content-item-color);
 }
 
 .websites-container-content2 {
