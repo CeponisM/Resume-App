@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
-import bcmcImage from './bcmc.png';
-import gauditImage from './gaudit.png';
-import instagramCloneImage from './instagram_clone.png';
-import game from './game.png';
-import gps from './gps.png';
-import starbucks from './starbucks.png';
-import cgol from './cgol.png';
-import mandala from './mandala.png';
-import chat from './chat.png';
-import motionExtraction from './motionExtraction.png';
-import ctiaSECcert from './certifications/ctiaSECcert.png';
+import bcmcImage from './projects/bcmc.jpg';
+import gauditImage from './projects/gaudit.jpg';
+import instagramCloneImage from './projects/instagram_clone.jpg';
+import game from './projects/game.jpg';
+import gps from './projects/gps.jpg';
+import starbucks from './projects/starbucks.jpg';
+import cgol from './projects/cgol.jpg';
+import mandala from './projects/mandala.jpg';
+import chat from './projects/chat.jpg';
+import motionExtraction from './projects/motionExtraction.jpg';
+import ctiaSECcert from './certifications/ctiaSECcert.jpg';
 import isc2CCcert from './certifications/isc2CCcert.jpg';
-import dod101Codingcert from './certifications/dod101Codingcert.png';
+import dod101Codingcert from './certifications/dod101Codingcert.jpg';
 import dod101CritIPPVcert from './certifications/dod101CritIPPVcert.jpg';
 import dod101ReverseEPVcert from './certifications/dod101ReverseEPVcert.jpg';
-import pendingApproval from './certifications/pendingApproval.png';
-import ciscoCBROPScert from './courses/ciscoCBROPScert.png';
+import ciscoCBROPScert from './courses/ciscoCBROPScert.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import Particles from 'react-tsparticles';
-import { loadFull } from "tsparticles";
+//import { loadFull } from "tsparticles";
 import { ThemeProvider } from './ThemeContext';
 import DarkModeToggle from './DarkModeToggle';
 import { CSSTransition } from 'react-transition-group';
+
 import './App.css';
 
 function App() {
+  // Modal selection
   const [selectedImg, setSelectedImg] = useState(null);
 
+  // Projects list
   const websites = [
     {
       name: 'BCMC.World',
@@ -91,6 +93,7 @@ function App() {
     }
   ];
 
+  // certification list
   const certificates = [
     {
       name: 'CompTIA Security+',
@@ -119,6 +122,7 @@ function App() {
     }
   ];
 
+  // courses list
   const courses = [
     {
       name: 'Cisco CBROPS',
@@ -137,7 +141,7 @@ function App() {
   // };
 
   // Console Hello
-  console.log("Hello and welcome!");
+  console.log("Hi and welcome to my website!");
 
   return (
     <ThemeProvider>
@@ -217,10 +221,13 @@ function App() {
               <div className='name-heading'>
                 <h2>Mantas Čeponis</h2>
                 <div className="social-links">
+                  {/* Github Social Link */}
                   <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
                     <FontAwesomeIcon icon={faGithub} />
                     <span>CeponisM on GitHub</span>
                   </a>
+
+                  {/* Linkedin Social Link */}
                   <a href="https://www.linkedin.com/in/mantas-%C4%8Deponis-434842173/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
                     <FontAwesomeIcon icon={faLinkedin} />
                     <span>CeponisM on LinkedIn</span>
@@ -233,6 +240,8 @@ function App() {
               <div className='name-heading2'>
                 <h1>What Have I Built?</h1>
                 <p />
+
+                {/* Website projects list */}
                 <div className='websites-container-list'>
                   {websites.map((site, index) => (
                     <div className="website-preview" key={site.name || index}>
@@ -290,6 +299,7 @@ function App() {
               </div>
             </div>
 
+            {/* Certifications list */}
             <header className="websites-container-info2">
               <div className='name-heading2'>
                 <h1>What Certificates Do I Have?</h1>
@@ -311,6 +321,7 @@ function App() {
               </div>
             </header>
 
+            {/* Courses list */}
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>What Additional Courses have I completed?</h1>
@@ -327,6 +338,7 @@ function App() {
                   ))}
                 </div>
 
+                {/* Modal for selected certification or course */}
                 <CSSTransition
                   in={selectedImg !== null}
                   timeout={300}
@@ -343,6 +355,7 @@ function App() {
               </div>
             </div>
 
+            {/* Location map display */}
             <header className="websites-container-info2">
               <div className='name-heading2'>
                 <h1>Where Am I?</h1>
@@ -352,26 +365,28 @@ function App() {
               </div>
             </header>
 
+            {/* Contact information */}
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>What Is My Contact?</h1>
 
                 <div className='websites-container-content2'>
                   <div className='email'>
-                    <a href="mailto:MantasCeponis5@gmail.com">
-                      <p id="email" class="text-center">MantasCeponis5@gmail.com</p>
+                    <a href="mailto:Hire@MCeponis.com">
+                      <p id="email" class="text-center">Hire@MCeponis.com</p>
                     </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <header className="App-header">
+            {/* Footer */}
+            <footer className="App-header">
               <div className='name-heading'>
                 <h1>Thank you for reading</h1>
                 <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
               </div>
-            </header>
+            </footer>
           </div>
         </div>
       </div>
