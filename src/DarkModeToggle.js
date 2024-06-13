@@ -30,6 +30,10 @@ const IconWrapper = styled.span`
 
   /* Center the icon in the switch */
   margin-top: 1px;
+
+  &:hover {
+    transform: scale(1.08);
+  }
 `;
 
 const DarkModeToggle = () => {

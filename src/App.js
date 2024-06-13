@@ -15,6 +15,8 @@ import dod101Codingcert from './certifications/dod101Codingcert.jpg';
 import dod101CritIPPVcert from './certifications/dod101CritIPPVcert.jpg';
 import dod101ReverseEPVcert from './certifications/dod101ReverseEPVcert.jpg';
 import ciscoCBROPScert from './courses/ciscoCBROPScert.jpg';
+import serverRack from './homelab/serverRack.jpg';
+import servers from './homelab/servers.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 // import Particles from 'react-tsparticles';
@@ -22,6 +24,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { ThemeProvider } from './ThemeContext';
 import DarkModeToggle from './DarkModeToggle';
 import { CSSTransition } from 'react-transition-group';
+import { ReactTyped } from "react-typed";
 
 import './App.css';
 
@@ -131,6 +134,20 @@ function App() {
     }
   ];
 
+  // courses list
+  const homelab = [
+    {
+      name: 'Full 48u Rack',
+      image: serverRack,
+      info: 'In-progress 48u server rack'
+    },
+    {
+      name: 'Servers',
+      image: servers,
+      info: 'HP DL380P, Dell PowerEdge T620, NetApp DS4246 Storage 16-Bay'
+    }
+  ];
+
   // const particlesInit = async (main) => {
 
   //   await loadFull(main);
@@ -219,7 +236,16 @@ function App() {
             <header className="App-header">
               <DarkModeToggle />
               <div className='name-heading'>
-                <h2>Mantas Čeponis</h2>
+                <h2>
+                  <ReactTyped
+                    strings={["Mantas Čeponis"]}
+                    typeSpeed={100}
+                    loop
+                    backSpeed={20}
+                    cursorChar=">"
+                    showCursor={true}
+                  />
+                </h2>
                 <div className="social-links">
                   {/* Github Social Link */}
                   <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
@@ -238,7 +264,9 @@ function App() {
 
             <div className="websites-container">
               <div className='name-heading2'>
-                <h1>What Have I Built?</h1>
+                <h1>
+                  <ReactTyped strings={["What Have I Built?"]} typeSpeed={123} loop />
+                </h1>
                 <p />
 
                 {/* Website projects list */}
@@ -260,7 +288,9 @@ function App() {
 
             <div className="websites-container-info">
               <div className='name-heading2'>
-                <h1>What Do I Do?</h1>
+                <h1>
+                  <ReactTyped strings={["What Do I Do?"]} typeSpeed={69} loop />
+                </h1>
 
                 <div className='websites-container-content'>
                   <ul>
@@ -282,7 +312,9 @@ function App() {
 
             <div className="websites-container">
               <div className='name-heading2'>
-                <h1>What Do I Know?</h1>
+                <h1>
+                  <ReactTyped strings={["What Do I Know?"]} typeSpeed={102} loop />
+                </h1>
 
                 <div className='websites-container-content2'>
                   <ul>
@@ -302,7 +334,9 @@ function App() {
             {/* Certifications list */}
             <header className="websites-container-info2">
               <div className='name-heading2'>
-                <h1>What Certificates Do I Have?</h1>
+                <h1>
+                  <ReactTyped strings={["What Certificates Do I Have?"]} typeSpeed={39} loop />
+                </h1>
                 <p />
                 <div className='websites-container-list'>
                   {certificates.map((site, index) => (
@@ -315,19 +349,56 @@ function App() {
                     </div>
                   ))}
                 </div>
-                <div>
+                <div className='websites-container-content-addition'>
                   *Currently Studying for CompTIA Cybersecurity Analyst (CYSA) Certification
                 </div>
               </div>
             </header>
 
-            {/* Courses list */}
+            {/* 
+            {/* Courses list
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>What Additional Courses have I completed?</h1>
                 <p />
                 <div className='websites-container-list'>
                   {courses.map((site, index) => (
+                    <div className="website-preview" key={site.name || index}>
+                      <img src={site.image} alt={`${site.name} Preview`} className="website-image" onClick={() => setSelectedImg(site.image)} />
+                      <div className="info-pane">
+                        <p className="website-title">{site.name}</p>
+                        <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Modal for selected certification or course
+                <CSSTransition
+                  in={selectedImg !== null}
+                  timeout={300}
+                  classNames="overlay"
+                  unmountOnExit
+                  onEnter={() => document.body.style.overflow = 'hidden'}
+                  onExited={() => document.body.style.overflow = 'auto'}
+                >
+                  <div className="overlay" onClick={() => setSelectedImg(null)}>
+                    <img src={selectedImg} alt="Enlarged preview" className="enlarged-image" />
+                  </div>
+                </CSSTransition>
+
+              </div>
+            </div> */}
+
+            {/* Courses list */}
+            <div className="websites-container">
+              <div className='name-heading2'>
+                <h1>
+                  <ReactTyped strings={["Want to see my Home Lab?"]} typeSpeed={89} loop />
+                </h1>
+                <p />
+                <div className='websites-container-list'>
+                  {homelab.map((site, index) => (
                     <div className="website-preview" key={site.name || index}>
                       <img src={site.image} alt={`${site.name} Preview`} className="website-image" onClick={() => setSelectedImg(site.image)} />
                       <div className="info-pane">
@@ -353,12 +424,17 @@ function App() {
                 </CSSTransition>
 
               </div>
+              <center>
+                  <div className='websites-container-content-addition'>The homelab is an in-progress build, currently running VMware vSphere 8 Evaluation. The 16-Bay JBOD is currently used mainly for TrueNAS network storage and VM storage.</div>
+              </center>
             </div>
 
             {/* Location map display */}
             <header className="websites-container-info2">
               <div className='name-heading2'>
-                <h1>Where Am I?</h1>
+                <h1>
+                  <ReactTyped strings={["Where Am I?"]} typeSpeed={89} loop />
+                </h1>
                 <div className="google-map-container">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -368,12 +444,14 @@ function App() {
             {/* Contact information */}
             <div className="websites-container">
               <div className='name-heading2'>
-                <h1>What Is My Contact?</h1>
+                <h1>
+                  <ReactTyped strings={["What Is My Contact?"]} typeSpeed={33} loop />
+                </h1>
 
                 <div className='websites-container-content2'>
                   <div className='email'>
                     <a href="mailto:Hire@MCeponis.com">
-                      <p id="email" class="text-center">Hire@MCeponis.com</p>
+                      <center><p id="email" class="text-center">Hire@MCeponis.com</p></center>
                     </a>
                   </div>
                 </div>

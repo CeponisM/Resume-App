@@ -103,6 +103,18 @@ html {
   color: var(--heading-text-color);
 }
 
+.websites-container-content-addition {
+  /* Styling for each addition */
+  font-size: 1.5em;
+  margin-bottom: 21px;
+  margin-left: 51px;
+  margin-right: 51px;
+  position: relative;
+  cursor: default;
+  transition: all 0.3s ease;
+  color: var(--heading-text-color);
+}
+
 .websites-container-content ul li:before {
   /* Custom bullet style */
   position: absolute;
@@ -111,7 +123,6 @@ html {
   /* Theme color for bullet */
   font-size: 1.5rem;
   line-height: 1;
-  /* Align bullet with text */
 }
 
 .websites-container-content ul li:hover {
@@ -141,8 +152,8 @@ html {
 .websites-container-content2 ul {
   /* Remove default list styling */
   list-style-type: none;
-  padding-left: 45px;
-  padding-right: 45px;
+  padding-left: 51px;
+  padding-right: 51px;
 }
 
 .websites-container-content2 ul li {
@@ -163,14 +174,12 @@ html {
   /* Theme color for bullet */
   font-size: 1.5rem;
   line-height: 1;
-  /* Align bullet with text */
 }
 
 .websites-container-content2 ul li:hover {
   /* Animation on hover */
   transform: translateX(10px);
   color: #9DB4C0;
-  /* Darker color on hover */
 }
 
 .website-preview {
@@ -186,6 +195,7 @@ html {
 
 .website-preview:hover {
   border: 1px solid #E0FBFC;
+  transform: scale(1.02);
 }
 
 .website-image {
@@ -193,7 +203,7 @@ html {
   height: 200px;
   /* Fixed height for uniform size */
   object-fit: cover;
-  /* Ensures image covers the area nicely */
+  /* Ensures image covers the area */
   transition: transform 0.2s ease;
 }
 
@@ -292,17 +302,14 @@ html {
 
 .parallax-layer-back {
   transform: translateZ(-3px) scale(4);
-  /* Background SVG styling (e.g., mountains) */
 }
 
 .parallax-layer-mid {
   transform: translateZ(-2px) scale(3);
-  /* Mid-ground SVG styling (e.g., smaller hills, trees) */
 }
 
 .parallax-layer-front {
   transform: translateZ(-1px) scale(2);
-  /* Foreground SVG styling (e.g., detailed elements like close-up trees, snowflakes) */
 }
 
 .App-header {
@@ -316,13 +323,14 @@ html {
 
 .email a {
   text-decoration: none;
+  font-size: 1.1em;
   color: var(--heading-text-color);
   transition: all 0.3s ease;
 }
 
 .email a:hover {
   color: #C2DFE3;
-  /* Darker color for GitHub hover */
+  /* change color for email hover */
   text-decoration: none;
 }
 
@@ -359,7 +367,7 @@ html {
 
 .github-link:hover {
   color: #C2DFE3;
-  /* Darker color for GitHub hover */
+  /* Change color for GitHub hover */
 }
 
 .linkedin-link:hover {
@@ -379,7 +387,6 @@ html {
   right: 0;
   bottom: 0;
   z-index: 1;
-  /* Behind other content */
 }
 
 .name-heading {
