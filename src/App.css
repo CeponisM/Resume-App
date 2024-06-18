@@ -329,8 +329,8 @@ html {
 }
 
 .email a:hover {
-  color: #C2DFE3;
   /* change color for email hover */
+  color: #C2DFE3;
   text-decoration: none;
 }
 

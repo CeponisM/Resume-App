@@ -9,6 +9,7 @@ import cgol from './projects/cgol.jpg';
 import mandala from './projects/mandala.jpg';
 import chat from './projects/chat.jpg';
 import motionExtraction from './projects/motionExtraction.jpg';
+import waitlistFrontend from './projects/waitlist.jpg';
 import ctiaSECcert from './certifications/ctiaSECcert.jpg';
 import isc2CCcert from './certifications/isc2CCcert.jpg';
 import dod101Codingcert from './certifications/dod101Codingcert.jpg';
@@ -34,6 +35,12 @@ function App() {
 
   // Projects list
   const websites = [
+    {
+      name: 'Waitlist frontend',
+      url: 'https://MCeponis.com/8',
+      image: waitlistFrontend,
+      info: 'Practice waitlist frontend with custom pad example'
+    },
     {
       name: 'BCMC.World',
       url: 'https://BCMC.World/',
@@ -86,7 +93,7 @@ function App() {
       name: 'Motion Extraction',
       url: 'https://MCeponis.com/6',
       image: motionExtraction,
-      info: 'Camera motion-extraction from concepts found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>, mobile supported'
+      info: 'Camera motion-extraction from concepts found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>, mobile supported (or webcam required)'
     },
     {
       name: 'Online Chat',
@@ -126,13 +133,13 @@ function App() {
   ];
 
   // courses list
-  const courses = [
-    {
-      name: 'Cisco CBROPS',
-      image: ciscoCBROPScert,
-      info: 'Understanding Cisco Cybersecurity Operations Fundamentals (CBROPS)'
-    }
-  ];
+  // const courses = [
+  //   {
+  //     name: 'Cisco CBROPS',
+  //     image: ciscoCBROPScert,
+  //     info: 'Understanding Cisco Cybersecurity Operations Fundamentals (CBROPS)'
+  //   }
+  // ];
 
   // courses list
   const homelab = [
