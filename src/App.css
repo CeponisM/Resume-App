@@ -15,7 +15,7 @@
 :root[data-theme="dark"] {
   --background-color: #121212;
   --heading-color: #0e1416;
-  --heading-text-color: #050808;
+  --heading-text-color: #E0FBFC;
   --content-item-color: #9DB4C0;
   --container-color: rgb(37, 50, 54);
   --text-color: #eee;
@@ -30,14 +30,27 @@ html {
   transition: background-color 0.3s, color 0.3s;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
 .App {
   display: flex;
   justify-content: center;
 }
 
 .content {
-  width: 90%;
-  max-width: 1110px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .websites-container {
@@ -49,6 +62,7 @@ html {
   gap: 20px;
   padding-top: 33px;
   padding-bottom: 33px;
+  margin-bottom: 4rem;
   background-color: var(--container-color);
 }
 
@@ -85,6 +99,15 @@ html {
   font-size: 1.5em;
   z-index: 2;
   text-align: center;
+}
+
+.websites-container-content a {
+  text-decoration: underline;
+  color: var(--heading-text-color);
+}
+
+.websites-container-content a:hover {
+  color: var(--hover-color);
 }
 
 .websites-container-content ul {
@@ -183,17 +206,19 @@ html {
 }
 
 .website-preview {
+  background-color: #ffffff;
   width: 300px;
-  /* Fixed width for uniform size */
   border: 1px solid #9DB4C0;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .website-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   border: 1px solid #E0FBFC;
   transform: scale(1.02);
 }
@@ -203,8 +228,6 @@ html {
   height: 200px;
   /* Fixed height for uniform size */
   object-fit: cover;
-  /* Ensures image covers the area */
-  transition: transform 0.2s ease;
 }
 
 .overlay {
@@ -261,6 +284,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
+  padding: 1rem;
   background-color: var(--heading-color);
   color: #C2DFE3;
   padding: 10px;
@@ -275,13 +299,15 @@ html {
 .website-title {
   color: #E0FBFC;
   font-style: italic;
-  font-size: 18px;
-  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
   z-index: 2;
 }
 
 .website-info {
-  font-size: 14px;
+  font-size: 0.9rem;
+  color: #666;
   margin: 5px 0 0;
 }
 
@@ -289,6 +315,25 @@ html {
   position: relative;
   overflow: hidden;
   height: 100vh;
+}
+
+.split-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.left-column {
+  display: flex;
+  max-width: 30%;
+  flex-direction: column;
+}
+
+.right-column {
+  display: flex;
+  max-width: 70%;
+  flex-direction: column;
 }
 
 .parallax-layer {
@@ -447,5 +492,16 @@ html {
 @media (max-width: 792px) {
   .google-map-container iframe {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .left-column,
+  .right-column {
+    max-width: 100%;
   }
 }

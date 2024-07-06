@@ -20,12 +20,15 @@ import serverRack from './homelab/serverRack.jpg';
 import servers from './homelab/servers.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FaReact, FaJs, FaJava, FaPython } from 'react-icons/fa';
 // import Particles from 'react-tsparticles';
 //import { loadFull } from "tsparticles";
 import { ThemeProvider } from './ThemeContext';
-import DarkModeToggle from './DarkModeToggle';
+import DarkModeToggle from './components/DarkModeToggle';
 import { CSSTransition } from 'react-transition-group';
 import { ReactTyped } from "react-typed";
+import SkillsSection from './components/skills/SkillsSection';
+import AboutSection from './components/about/AboutSection';
 
 import './App.css';
 
@@ -45,7 +48,7 @@ function App() {
       name: 'BCMC.World',
       url: 'https://BCMC.World/',
       image: bcmcImage,
-      info: 'Interactive Website, GPU Intensive'
+      info: 'Interactive Website, Memory/GPU Intensive'
     },
     {
       name: 'GAudit.org',
@@ -292,48 +295,55 @@ function App() {
                 </div>
               </div>
             </div>
-
             <div className="websites-container-info">
               <div className='name-heading2'>
                 <h1>
                   <ReactTyped strings={["What Do I Do?"]} typeSpeed={69} loop />
                 </h1>
-
-                <div className='websites-container-content'>
-                  <ul>
-                    <li>Learn as much as I can, and then some more</li>
-                    <p />
-                    <li>Create fun projects in my spare time</li>
-                    <p />
-                    <li>Write quality code that is easy to read and extend</li>
-                    <p />
-                    <li>Create and maintain documentation of everything I make</li>
-                    <p />
-                    <li>Strictly follow security best practices</li>
-                    <p />
-                    <li>Never stop learning</li>
-                  </ul>
+                <div className="split-container">
+                  <div className="left-column">
+                    <AboutSection />
+                  </div>
+                  <div className="right-column">
+                    <div className='websites-container-content'>
+                      <ul>
+                        <li>Write quality code that is easy to read and extend</li>
+                        <li>Learn as much as I can, and then some more</li>
+                        <li>Create fun projects in my spare time</li>
+                        <li>Create and maintain documentation of everything I make</li>
+                        <li>Strictly follow security best practices</li>
+                        <li>Never stop learning</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
+            {/* Knowledge and Skills Section */}
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>
                   <ReactTyped strings={["What Do I Know?"]} typeSpeed={102} loop />
                 </h1>
-
-                <div className='websites-container-content2'>
-                  <ul>
-                    <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
-                    <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
-                    <li>Experience in integrating third-party <b>APIs</b> and services</li>
-                    <li><b>Cybersecurity</b> best practices</li>
-                    <li>Strong problem-solving skills and analytical thinking</li>
-                    <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
-                    <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
-                    <li>How to ask a great question on Stack Overflow</li>
-                  </ul>
+                <div className="split-container">
+                  <div className="left-column">
+                    <SkillsSection />
+                  </div>
+                  <div className="right-column">
+                    <div className='websites-container-content2'>
+                      <ul>
+                        <li><b>Javascript</b>, <b>PHP</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
+                        <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
+                        <li>Experience in integrating third-party <b>APIs</b> and services</li>
+                        <li><b>Cybersecurity</b> best practices</li>
+                        <li>Strong problem-solving skills and analytical thinking</li>
+                        <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
+                        <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
+                        <li>How to ask a great question on Stack Overflow</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -432,7 +442,58 @@ function App() {
 
               </div>
               <center>
-                  <div className='websites-container-content-addition'>The homelab is an in-progress build, currently running VMware vSphere 8 Evaluation. The 16-Bay JBOD is currently used mainly for TrueNAS network storage and VM storage.</div>
+                <div className='websites-container-content'>
+                  <ul>
+                    <li><a
+                      href="https://www.hpe.com/psnow/doc/c04123238"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-link-footer">
+                      HP DL380P Gen8
+                    </a> - VMware vSphere 8 Evaluation (Unsupported CPU )</li>
+                    <p />
+                    <li><a
+                      href="https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/dell-poweredge-t620-technical-guide.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-link-footer">
+                      Dell PowerEdge T620
+                    </a> - Proxmox VE</li>
+                    <p />
+                    <li>2X: <a
+                      href="https://i.dell.com/sites/content/shared-content/data-sheets/en/Documents/precision-r5500-spec-sheet.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-link-footer">
+                      Dell Precision WorkStation R5500
+                    </a> - VMware vSphere 6.5</li>
+                    <p />
+                    <li><a
+                      href="https://dl.dell.com/manuals/all-products/esuprt_ser_stor_net/esuprt_poweredge/poweredge-1950_user's%20guide_en-us.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-link-footer">
+                      Dell PowerEdge 1950
+                    </a> - VMware vSphere 6.5</li>
+                    <p />
+                    <li><a
+                      href="https://www.hp.com/hpinfo/newsroom/press_kits/2014/ComputeEra/HP_ProLiantDL360Gen9Server_DataSheet.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-link-footer">
+                      HP Proliant DL360 Gen9
+                    </a> - VMware vSphere 6.5</li>
+                    <p />
+                    <li><a
+                      href="https://www.netapp.com/media/19959-ds-3096.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-link-footer">
+                      NetApp DS4246 Storage 16-Bay
+                    </a></li>
+                  </ul>
+                </div>
+                <div className='websites-container-content-addition'>The homelab is an in-progress build to expand my knowledge of servers, networking, cybersecurity, and IT. The 16-Bay JBOD is currently used mainly for TrueNAS network storage and VM storage.</div>
               </center>
             </div>
 
@@ -443,7 +504,7 @@ function App() {
                   <ReactTyped strings={["Where Am I?"]} typeSpeed={89} loop />
                 </h1>
                 <div className="google-map-container">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowFullScreen={true} loading="lazy"></iframe>
                 </div>
               </div>
             </header>
@@ -458,8 +519,9 @@ function App() {
                 <div className='websites-container-content2'>
                   <div className='email'>
                     <a href="mailto:Hire@MCeponis.com">
-                      <center><p id="email" class="text-center">Hire@MCeponis.com</p></center>
+                      <center><p id="email" className="text-center">Hire@MCeponis.com</p></center>
                     </a>
+                    <center><p>For full resume contact me via email</p></center>
                   </div>
                 </div>
               </div>

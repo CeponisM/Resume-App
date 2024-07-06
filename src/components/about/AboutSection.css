@@ -1,0 +1,22 @@
+.about-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2.5rem;
+    margin-left: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+  }

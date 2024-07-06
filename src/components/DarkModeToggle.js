@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTheme } from './ThemeContext'; // Make sure this path is correct
+import { useTheme } from '../ThemeContext'; // Make sure this path is correct
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
@@ -11,7 +11,7 @@ const Switch = styled.label`
   vertical-align: middle;
   margin-top: 6px;
   margin-right:12px;
-  justify-content: center; /* Center the icons */
+  justify-content: center;
   width: 60px;
   height: 34px;
   background-color: ${({ theme }) => theme === 'dark' ? '#333' : '#FFF'};
@@ -24,12 +24,14 @@ const Switch = styled.label`
 const IconWrapper = styled.span`
   position: absolute;
   justify-content: center;
+  align-items: center;
+  vertical-align: middle;
   transition: opacity 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   opacity: ${({ theme, mode }) => (theme === mode ? '1' : '0')};
 
   /* Center the icon in the switch */
-  margin-top: 1px;
+  margin-top: 7px;
 
   &:hover {
     transform: scale(1.08);
