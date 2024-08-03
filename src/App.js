@@ -555,7 +555,7 @@ function App() {
                   ))}
                 </div>
                 <div className='websites-container-content-addition'>
-                  Java, C++ Credentials: 12/18/2020 College of Dupage
+                  <b>Java</b>, <b>C++</b> Credentials: 12/18/2020 College of Dupage
                   <p />
                   *Currently Studying for CompTIA Cybersecurity Analyst (CYSA) Certification
                 </div>
@@ -638,7 +638,7 @@ function App() {
                       { name: "HP DL380P Gen8", image: serverDL380, link: "https://www.hpe.com/psnow/doc/c04123238" },
                       { name: "HP Proliant DL360 Gen9", image: serverDL360, link: "https://www.hp.com/hpinfo/newsroom/press_kits/2014/ComputeEra/HP_ProLiantDL360Gen9Server_DataSheet.pdf" },
                       { name: "Dell PowerEdge T620", image: servert620, link: "https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/dell-poweredge-t620-technical-guide.pdf" },
-                      { name: "Dell Precision WorkStation R5500", image: serverR5500, link: "https://i.dell.com/sites/content/shared-content/data-sheets/en/Documents/precision-r5500-spec-sheet.pdf" },
+                      { name: "Dell Precision WorkStation R5500 (2X)", image: serverR5500, link: "https://i.dell.com/sites/content/shared-content/data-sheets/en/Documents/precision-r5500-spec-sheet.pdf" },
                       { name: "Dell PowerEdge 1950", image: serverPE1950, link: "https://dl.dell.com/manuals/all-products/esuprt_ser_stor_net/esuprt_poweredge/poweredge-1950_user's%20guide_en-us.pdf" },
                       { name: "NetApp DS4246 Storage 16-Bay", image: serverDS4246, link: "https://www.netapp.com/media/19959-ds-3096.pdf" },
                       { name: "Cisco Catalyst WS-C2960X-48TD", image: serverC2960, link: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-2960-x-series-switches/datasheet_c78-728232.html" },
