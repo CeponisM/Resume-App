@@ -20,6 +20,7 @@ import dod101Codingcert from './certifications/dod101Codingcert.jpg';
 import dod101CritIPPVcert from './certifications/dod101CritIPPVcert.jpg';
 import dod101ReverseEPVcert from './certifications/dod101ReverseEPVcert.jpg';
 import ciscoCBROPScert from './courses/ciscoCBROPScert.jpg';
+import ciscoPRNEcourse from './courses/ciscoPRNEcourse.jpg';
 import w3React from './certifications/ReactW3Schools.jpg';
 //Homelab
 import server1 from './homelab/1-min.jpg';
@@ -232,7 +233,12 @@ function App() {
     {
       name: 'Cisco CBROPS',
       image: ciscoCBROPScert,
-      info: 'Understanding Cisco Cybersecurit Operation Fundimentals (CBROPS)'
+      info: 'Understanding Cisco Cybersecurit Operation Fundimentals (CBROPS) Course'
+    },
+    {
+      name: 'Cisco CBROPS',
+      image: ciscoPRNEcourse,
+      info: 'Understanding Cisco Cybersecurit Operation Fundimentals (CBROPS) Course'
     },
     {
       name: 'W3 Certified React Developer',
