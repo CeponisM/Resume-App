@@ -33,6 +33,8 @@ import serverDS4246 from './homelab/DS4246-min.jpg';
 import serverPE1950 from './homelab/PE1950-min.jpg';
 import serverR5500 from './homelab/R5500-min.jpg';
 import servert620 from './homelab/t620-min.jpg';
+//Sidebar
+import SidebarIndex from './components/SidebarIndex.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -233,12 +235,12 @@ function App() {
     {
       name: 'Cisco CBROPS',
       image: ciscoCBROPScert,
-      info: 'Understanding Cisco Cybersecurit Operation Fundimentals (CBROPS) Course'
+      info: 'Understanding Cisco Cybersecurity Operations Fundamentals (CBROPS) Course'
     },
     {
-      name: 'Cisco CBROPS',
+      name: 'Cisco PRNE',
       image: ciscoPRNEcourse,
-      info: 'Understanding Cisco Cybersecurit Operation Fundimentals (CBROPS) Course'
+      info: 'Implementing and Operating Cisco Enterprise Network Core Technologies (PRNE) Course'
     },
     {
       name: 'W3 Certified React Developer',
@@ -302,17 +304,17 @@ function App() {
 
   useEffect(() => {
     const serverItems = document.querySelectorAll('.server-list li');
-    
+
     serverItems.forEach(item => {
       const img = document.createElement('img');
       img.src = item.dataset.image;
       img.className = 'server-image';
       item.appendChild(img);
-  
+
       item.addEventListener('mouseenter', () => {
         img.style.opacity = '1';
       });
-  
+
       item.addEventListener('mouseleave', () => {
         img.style.opacity = '0';
       });
@@ -706,6 +708,7 @@ function App() {
             </footer>
           </div>
         </div>
+        <SidebarIndex />
       </div >
     </ThemeProvider >
   );

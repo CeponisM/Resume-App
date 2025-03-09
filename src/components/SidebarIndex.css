@@ -1,0 +1,209 @@
+.sidebar-index {
+  position: absolute;
+  left: -2px;
+  width: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: width 0.3s ease-out, top 0.3s ease-out;
+  will-change: top, width;
+}
+
+/* Minimized state */
+.sidebar-index.minimized {
+  width: 38px;
+  overflow: hidden;
+}
+
+.sidebar-index.minimized .sidebar-title span {
+  opacity: 0;
+  width: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.sidebar-index.minimized .sidebar-title {
+  padding: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-index.minimized ul {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+/* Toggle button */
+.sidebar-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.sidebar-index.minimized .sidebar-toggle {
+  position: static;
+  transform: none;
+  margin: 0;
+}
+
+.sidebar-toggle:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-index.minimized .sidebar-toggle:hover {
+  transform: scale(1.1);
+}
+
+.sidebar-toggle:focus {
+  outline: none;
+}
+
+.sidebar-toggle-icon {
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+
+/* The arrow icon (< >) */
+.sidebar-toggle-icon:before,
+.sidebar-toggle-icon:after {
+  content: '';
+  position: absolute;
+  background-color: #E0FBFC;
+  width: 8px;
+  height: 2px;
+  transition: transform 0.3s ease;
+}
+
+/* Create a left arrow < for expanded state (to minimize) */
+.sidebar-toggle-icon:before {
+  transform: rotate(-45deg);
+  top: 4px;
+  left: 3px;
+}
+
+.sidebar-toggle-icon:after {
+  transform: rotate(45deg);
+  top: 8px;
+  left: 3px;
+}
+
+/* Create a right arrow > for minimized state (to expand) */
+.minimized .sidebar-toggle-icon:before {
+  transform: rotate(45deg);
+  top: 4px;
+}
+
+.minimized .sidebar-toggle-icon:after {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+
+/* Light/Dark theme styling */
+.sidebar-index.light {
+  background-color: rgba(137, 159, 170, 0.9); /* --container-color with transparency */
+  border: 1px solid #ddd;
+}
+
+.sidebar-index.dark {
+  background-color: rgba(37, 50, 54, 0.9); /* --container-color with transparency */
+  border: 1px solid #444;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  text-align: center;
+  padding: 12px 40px 12px 12px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  height: 46px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-title span {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.sidebar-index.light .sidebar-title {
+  background-color: #253237; /* --heading-color */
+  color: #E0FBFC; /* --heading-text-color */
+}
+
+.sidebar-index.dark .sidebar-title {
+  background-color: #0e1416; /* --heading-color */
+  color: #E0FBFC; /* --heading-text-color */
+}
+
+.sidebar-index ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.sidebar-index li {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+  border-radius: 0 4px 4px 0;
+  text-shadow: 2px 2px 6px grey;
+}
+
+.sidebar-index.light li {
+  color: #253237; /* --text-color */
+}
+
+.sidebar-index.dark li {
+  color: #eee; /* --text-color */
+}
+
+.sidebar-index li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateX(3px);
+}
+
+.sidebar-index li.active {
+  border-left-color: #9DB4C0; /* --content-item-color */
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-index.light li.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-index.dark li.active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Media query to hide on smaller screens */
+@media (max-width: 1400px) {
+  .sidebar-index {
+    display: none;
+  }
+}
