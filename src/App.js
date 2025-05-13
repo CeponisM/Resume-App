@@ -15,6 +15,8 @@ import imgSocial from './projects/img-social.jpg';
 import imgMagic from './projects/imgMagic.gif';
 //Certifications
 import ctiaSECcert from './certifications/ctiaSECcert.jpg';
+import ctiaNETcert from './certifications/ctiaNETcert.jpg';
+import ctiaCYSAcert from './certifications/ctiaCYSAcert.jpg';
 import isc2CCcert from './certifications/isc2CCcert.jpg';
 import dod101Codingcert from './certifications/dod101Codingcert.jpg';
 import dod101CritIPPVcert from './certifications/dod101CritIPPVcert.jpg';
@@ -34,11 +36,11 @@ import serverPE1950 from './homelab/PE1950-min.jpg';
 import serverR5500 from './homelab/R5500-min.jpg';
 import servert620 from './homelab/t620-min.jpg';
 //Sidebar
-import SidebarIndex from './components/SidebarIndex.js';
+import SidebarIndex from './components/Sidebar/SidebarIndex.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faTableCellsLarge, faList, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTableCellsLarge, faList, faSearch, faBugSlash } from '@fortawesome/free-solid-svg-icons';
 // import Particles from 'react-tsparticles';
 //import { loadFull } from "tsparticles";
 import { ThemeProvider } from './ThemeContext';
@@ -226,6 +228,16 @@ function App() {
       name: 'CompTIA Security+',
       image: ctiaSECcert,
       info: 'CompTIA Security+ ce 701'
+    },
+    {
+      name: 'CompTIA Network+',
+      image: ctiaNETcert,
+      info: 'CompTIA Network+ ce'
+    },
+    {
+      name: 'CompTIA CYSA+',
+      image: ctiaCYSAcert,
+      info: 'CompTIA Cybersecurity Analyst+ CS0-003'
     },
     {
       name: 'ISC2 CC',
@@ -416,16 +428,22 @@ function App() {
                   />
                 </h2>
                 <div className="social-links">
-                  {/* Github Social Link */}
-                  <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
-                    <FontAwesomeIcon icon={faGithub} />
-                    <span>CeponisM on GitHub</span>
-                  </a>
-
                   {/* Linkedin Social Link */}
                   <a href="https://www.linkedin.com/in/mantas-%C4%8Deponis-434842173/" target="_blank" rel="noopener noreferrer" className="social-link linkedin-link">
                     <FontAwesomeIcon icon={faLinkedin} />
-                    <span>CeponisM on LinkedIn</span>
+                    <span>LinkedIn</span>
+                  </a>
+                  
+                  {/* BugCrowd Link */}
+                  <a href="https://bugcrowd.com/MCeponis" target="_blank" rel="noopener noreferrer" className="social-link bugcrowd-link">
+                    <FontAwesomeIcon icon={faBugSlash} />
+                    <span>BugCrowd</span>
+                  </a>
+                  
+                  {/* Github Link */}
+                  <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
+                    <FontAwesomeIcon icon={faGithub} />
+                    <span>GitHub</span>
                   </a>
                 </div>
               </div>

@@ -361,6 +361,10 @@ h6 {
   flex-direction: column;
 }
 
+.right-column websites-container-content ul li {
+  text-align: left;
+}
+
 .parallax-layer {
   position: absolute;
   top: 0;
@@ -410,7 +414,7 @@ h6 {
   justify-content: center;
   padding-left: 9px;
   padding-right: 9px;
-  gap: 20px;
+  gap: 27px;
   z-index: 2;
 }
 
@@ -441,12 +445,14 @@ h6 {
 
 .github-link:hover {
   color: #C2DFE3;
-  /* Change color for GitHub hover */
+}
+
+.bugcrowd-link:hover {
+  color: #C2DFE3;
 }
 
 .linkedin-link:hover {
   color: #C2DFE3;
-  /* LinkedIn brand color for hover */
 }
 
 .social-link .faGithub,

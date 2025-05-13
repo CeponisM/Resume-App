@@ -122,7 +122,7 @@ const SidebarIndex = () => {
             const scrollY = window.scrollY;
 
             // Update sidebar position - keep it below the name heading
-            const newTop = Math.max(nameHeadingBottom, scrollY + 100);
+            const newTop = Math.max(nameHeadingBottom - 47, scrollY + 100);
             sidebarRef.current.style.top = `${newTop}px`;
 
             // Set correct theme from document
