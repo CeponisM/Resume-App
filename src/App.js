@@ -79,8 +79,8 @@ function App() {
       name: '2D Img to 2.5D',
       url: 'http://MCeponis.com/10',
       image: imgMagic,
-      info: 'Turn 2D Image into 2.5D parallax effect, using home-server for depth-map conversions',
-      extendedInfo: `Users are required to sign-up and log-in using gmail or user/password combination through firebase authentication to prevent abuse of server.
+      info: 'Server Offline - Turn 2D Image into 2.5D parallax effect, using home-server for depth-map conversions',
+      extendedInfo: `Disabled and available for show upon request. Users are required to sign-up and log-in using gmail or user/password combination through firebase authentication to prevent abuse of server.
       User can then submit a standard photo that is then uploaded to my home server for depthmap conversion using depth_anything_v2 'vitb' ONNX model and returns it to the app.
       The depthmap is then used within a shader with the original image to add depth to the image similiar to the Depthy or DepthFlow apps considered "2D to 2.5D parallax conversion".
       Settings can be modified from the menu to adjust the depth style which is displayed within a Three.js scene.`,
