@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTheme } from '../ThemeContext'; // Make sure this path is correct
+import { useTheme } from '../ThemeContext';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 

@@ -706,6 +706,13 @@ h6 {
   line-height: 1.6;
 }
 
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust spacing as needed */
+}
+
 .project-list-item .project-link {
   display: inline-block;
   padding: 0.5rem 1rem;

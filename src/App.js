@@ -55,14 +55,43 @@ import './App.css';
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
-  const [layoutStyle, setLayoutStyle] = useState('grid');
+  const [layoutStyle, setLayoutStyle] = useState('list');
   const [searchExpanded, setSearchExpanded] = useState(false);
 
   // Projects list
   const websites = [
     {
+      name: '2D Img to 2.5D',
+      url: 'http://MCeponis.com/10',
+      githubUrl: 'https://github.com/CeponisM/three_d_img_gen',
+      image: imgMagic,
+      info: 'Turn 2D Image into 2.5D parallax effect, using home-server hosted depth-map conversions',
+      extendedInfo: `Users are required to sign-up and log-in using gmail or user/password combination through firebase authentication to prevent abuse of server.
+      User can then submit a standard photo that is uploaded to my home servers for image depthmap conversion using depth_anything_v2 'vitb' ONNX model and returns it to the app.
+      The depthmap is then used within a shader with the original image to add depth to the image similiar to the Depthy or DepthFlow apps considered "2D to 2.5D parallax conversion".
+      Settings can be modified from the menu to adjust the depth style which is displayed within a Three.js scene.`,
+      improvements: [
+        'Clean up UI, improve sign-in/sign-up pages',
+        'Broken setting exlusion/fixes'
+      ]
+    },
+    {
+      name: 'Online Chat',
+      url: 'https://MCeponis.com/7',
+      githubUrl: 'https://github.com/CeponisM/ceponis-chat',
+      image: chat,
+      info: 'Full online authenticated chat, including GPT-AI chat bot',
+      extendedInfo: `Authenticated user chat that displays all online users in the chat. The goal for this app was to implament a chat bot that could respond the the user (found in user list as "AI chat").
+      User may talk to other users within the chat, chats are saved for future reference if users attempt to communicate again using firestore database.
+      AI chat uses the OpenAI API for interacting with the user, and all is displayed within the chat.`,
+      improvements: [
+        'Styling display fixes that make the app more functional on all device aspect ratios and resolutions'
+      ]
+    },
+    {
       name: 'Image Social',
       url: 'https://MCeponis.com/9',
+      githubUrl: 'https://github.com/CeponisM/react-photo-social',
       image: imgSocial,
       info: 'VSCO Social Media Type App',
       extendedInfo: `Image social media app where users can create a profile for posts and find other users via search.
@@ -70,35 +99,23 @@ function App() {
       The loop is able to be edited with multiple filters and settings for changing the aesthetic and can then be posted to the users profile.
       Users are able to follow each other and are able to see newest posts from followed users in their feed.
       All posts support descriptions, likes, commenting, comment likes, and comment replies.
-      Notifications are displayed when users interact the user posts or comments.`,
+      Notifications are displayed when users interact with posts or comments.`,
       improvements: [
-        'Post editing option expansion and cleanup'
-      ]
-    },
-    {
-      name: '2D Img to 2.5D',
-      url: 'http://MCeponis.com/10',
-      image: imgMagic,
-      info: 'Server Offline - Turn 2D Image into 2.5D parallax effect, using home-server for depth-map conversions',
-      extendedInfo: `Disabled and available for show upon request. Users are required to sign-up and log-in using gmail or user/password combination through firebase authentication to prevent abuse of server.
-      User can then submit a standard photo that is then uploaded to my home server for depthmap conversion using depth_anything_v2 'vitb' ONNX model and returns it to the app.
-      The depthmap is then used within a shader with the original image to add depth to the image similiar to the Depthy or DepthFlow apps considered "2D to 2.5D parallax conversion".
-      Settings can be modified from the menu to adjust the depth style which is displayed within a Three.js scene.`,
-      improvements: [
-        'Clean up UI, improve sign-in/sign-up pages',
-        'Broken setting fixes'
+        'Post editing option expansion and cleanup of interfaces'
       ]
     },
     {
       name: 'Waitlist Frontend',
       url: 'https://MCeponis.com/8',
+      githubUrl: 'https://github.com/CeponisM/practice-project',
       image: waitlistFrontend,
       info: 'Practice waitlist frontend with custom pad example',
       extendedInfo: `A simple front-end practice project for signing up to a waiting list application.
       Custom mock pad display of what the app could look like with reactive styling.
       Distinct styling and Dark/light mode implementation for user chosen styling.`,
       improvements: [
-        'Styling updates for better visual appeal'
+        'Styling updates for better visual appeal',
+        'Improvement of performance on non-virtualized website instances'
       ]
     },
     {
@@ -106,7 +123,7 @@ function App() {
       url: 'https://BCMC.World/',
       image: bcmcImage,
       info: 'Interactive Music Label Website, Memory/GPU Intensive',
-      extendedInfo: `Display of music artist to showcase the artists and their song videos pulled from firestore database.
+      extendedInfo: `Display of music to showcase artists and their song using information pulled from firestore database.
       Moving background using blend mode with mouse/tilt interactivity for responsive display.
       Admin panel linked to firebase firestore for adding and retrieving artits and content that show on the website.
       Linked to a simple wordpress woocommerce merchendise website.`,
@@ -138,7 +155,7 @@ function App() {
       improvements: [
         'Custom sprites and image implamentations',
         'Performance improvements',
-        'Completion of many unfinished features'
+        'Completion of unfinished features'
       ]
     },
     {
@@ -157,6 +174,7 @@ function App() {
     {
       name: 'Shortest Distance GPS',
       url: 'https://MCeponis.com/3',
+      githubUrl: 'https://github.com/CeponisM/react-gps',
       image: gps,
       info: 'Sortest Distance GPS using APIs',
       extendedInfo: `Uses open street map to display a map, and uses API called FindDrivingRoute from rapidAPI using a start and end address.
@@ -171,11 +189,14 @@ function App() {
       info: 'Outdated Starbucks React Clone (Missing images)',
       extendedInfo: `Outdated Starbucks website clone that replicated the old Starbucks website. Some assets have become unavaliable since the clone
       site creation and therefore the website is missing assets. Old project that I do not plan to renew.`,
-      improvements: []
+      improvements: [
+        'Dynamic page updates for mobile and other aspect ratios'
+      ]
     },
     {
       name: 'Conways Game of Life',
       url: 'https://MCeponis.com/4',
+      githubUrl: 'https://github.com/CeponisM/react-gol',
       image: cgol,
       info: 'John Conways Game of Life with React',
       extendedInfo: `John Conways Game of Life that allows the user to set a grid size and select starting boxes.
@@ -186,6 +207,7 @@ function App() {
     {
       name: 'Mandala Generator',
       url: 'https://MCeponis.com/5',
+      githubUrl: 'https://github.com/CeponisM/react-waves',
       image: mandala,
       info: 'Custom Mandala Drawing Application in React (WIP)',
       extendedInfo: `Custom manadala application that starts from two points that move outwards until they hit a circular wall then bounce back depending on user defined settings.
@@ -198,26 +220,13 @@ function App() {
     {
       name: 'Motion Extraction',
       url: 'https://MCeponis.com/6',
+      githubUrl: 'https://github.com/CeponisM/motion-extraction',
       image: motionExtraction,
       info: 'Camera motion-extraction from concepts found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>, using mobile camera or webcam',
-      extendedInfo: `Camera motion-extraction using a concept found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>.
-      The app uses a camera that displays twice with a set delay, the second display is inverted and set at half transparancy causing the effect.
-      Watch the video mention to see exactly what can be done with the motion extraction, quite a cool concept I wanted to replicate within a simple app.`,
+      extendedInfo: 'Camera motion-extraction using a concept found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>. The app uses a camera that displays twice with a set delay, the second display is inverted and set at half transparancy causing the effect. Watch the video mention to see exactly what can be done with the motion extraction, quite a cool concept I wanted to replicate within a simple app.',
       improvements: [
         'Better styling and display improvements',
-        'Greater adjustability of second display for testing different effects'
-      ]
-    },
-    {
-      name: 'Online Chat',
-      url: 'https://MCeponis.com/7',
-      image: chat,
-      info: 'Full online authenticated chat, including GPT AI chat bot',
-      extendedInfo: `Authenticated user chat that displays all online users. The goal for this app was to implament a chat bot that could respond the the user (found as "AI chat").
-      User may talk to other users within the chat, chats are saved for future reference if users attempt to communicate again using firestore database.
-      AI chat uses the OpenAI API for interacting with the user, and all is displayed within the chat.`,
-      improvements: [
-        'Styling display fixes that make the app display better on all devices'
+        'Improved adjustability of second display for testing different effects'
       ]
     }
   ];
@@ -260,11 +269,6 @@ function App() {
       info: 'W3Schools Professional Level Certified React Developer'
     },
     {
-      name: 'DOD 101 Coding',
-      image: dod101Codingcert,
-      info: 'DOD 101 Coding Public Version'
-    },
-    {
       name: 'DOD 101 Critical Infrastructure',
       image: dod101CritIPPVcert,
       info: '101 Critical Infrastructure Protection for the Public'
@@ -273,7 +277,12 @@ function App() {
       name: 'DOD 101 Reverse Engineering',
       image: dod101ReverseEPVcert,
       info: '101 Reverse Engineering for the Public'
-    }
+    },
+    {
+      name: 'DOD 101 Coding',
+      image: dod101Codingcert,
+      info: 'DOD 101 Coding Public Version'
+    },
   ];
 
   // courses list
@@ -413,6 +422,7 @@ function App() {
           detectRetina: true,
         }}
       /> */}
+
           <div className="content">
             <header className="App-header">
               <DarkModeToggle />
@@ -433,13 +443,13 @@ function App() {
                     <FontAwesomeIcon icon={faLinkedin} />
                     <span>LinkedIn</span>
                   </a>
-                  
+
                   {/* BugCrowd Link */}
                   <a href="https://bugcrowd.com/MCeponis" target="_blank" rel="noopener noreferrer" className="social-link bugcrowd-link">
                     <FontAwesomeIcon icon={faBugSlash} />
                     <span>BugCrowd</span>
                   </a>
-                  
+
                   {/* Github Link */}
                   <a href="https://github.com/CeponisM" target="_blank" rel="noopener noreferrer" className="social-link github-link">
                     <FontAwesomeIcon icon={faGithub} />
@@ -452,7 +462,7 @@ function App() {
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>
-                  <ReactTyped strings={["What Have I Built?"]} typeSpeed={123} loop />
+                  What Have I Built?
                 </h1>
                 <div className="layout-toggle-container">
                   <button
@@ -509,58 +519,6 @@ function App() {
                 )}
               </div>
             </div>
-            <div className="websites-container-info">
-              <div className='name-heading2'>
-                <h1>
-                  <ReactTyped strings={["What Do I Do?"]} typeSpeed={69} loop />
-                </h1>
-                <div className="split-container">
-                  <div className="left-column">
-                    <AboutSection />
-                  </div>
-                  <div className="right-column">
-                    <div className='websites-container-content'>
-                      <ul>
-                        <li>Write quality code that is easy to read and extend</li>
-                        <li>Learn as much as I can, and then some more</li>
-                        <li>Create fun projects in my spare time</li>
-                        <li>Create and maintain documentation of everything I make</li>
-                        <li>Strictly follow security best practices</li>
-                        <li>Never stop learning</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Knowledge and Skills Section */}
-            <div className="websites-container">
-              <div className='name-heading2'>
-                <h1>
-                  <ReactTyped strings={["What Do I Know?"]} typeSpeed={102} loop />
-                </h1>
-                <div className="split-container">
-                  <div className="left-column">
-                    <SkillsSection />
-                  </div>
-                  <div className="right-column">
-                    <div className='websites-container-content2'>
-                      <ul>
-                        <li><b>React</b>, <b>Javascript</b>, <b>PHP</b>, <b>CSS</b>, <b>HTML</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
-                        <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
-                        <li>Experience in integrating third-party <b>APIs</b> and services</li>
-                        <li><b>Cybersecurity</b> best practices</li>
-                        <li>Strong problem-solving skills and analytical thinking</li>
-                        <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
-                        <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
-                        <li>How to ask a great question on Stack Overflow</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Certifications list */}
             <header className="websites-container-info2">
@@ -583,7 +541,7 @@ function App() {
                 <div className='websites-container-content-addition'>
                   <b>Java</b>, <b>C++</b> Credentials: 12/18/2020 College of Dupage
                   <p />
-                  *Currently Studying for CompTIA Cybersecurity Analyst (CYSA) Certification
+                  *Currently Studying for CompTIA Pentest+ Certification
                 </div>
               </div>
             </header>
@@ -682,9 +640,62 @@ function App() {
                   </ul>
                 </div>
                 <div className='websites-container-content-addition'>
-                  The homelab is an in-progress build to expand my knowledge of servers, networking, cybersecurity, virtualization, and IT. The 16-Bay JBOD is currently used mainly for TrueNAS network storage and VM storage.
+                  The homelab is an in-progress build to expand my knowledge of servers, networking, cybersecurity, virtualization, and IT. The 16-Bay JBOD is used for TrueNAS network and VM storage.
                 </div>
               </center>
+            </div>
+
+            <div className="websites-container-info">
+              <div className='name-heading2'>
+                <h1>
+                  <ReactTyped strings={["What Do I Do?"]} typeSpeed={69} loop />
+                </h1>
+                <div className="split-container">
+                  <div className="left-column">
+                    <AboutSection />
+                  </div>
+                  <div className="right-column">
+                    <div className='websites-container-content'>
+                      <ul>
+                        <li>Write quality code that is easy to read and extend</li>
+                        <li>Learn as much as I can, and then some more</li>
+                        <li>Create fun projects in my spare time</li>
+                        <li>Create and maintain documentation of everything I make</li>
+                        <li>Strictly follow security best practices</li>
+                        <li>Never stop learning</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Knowledge and Skills Section */}
+            <div className="websites-container">
+              <div className='name-heading2'>
+                <h1>
+                  <ReactTyped strings={["What Do I Know?"]} typeSpeed={102} loop />
+                </h1>
+                <div className="split-container">
+                  <div className="left-column">
+                    <SkillsSection />
+                  </div>
+                  <div className="right-column">
+                    <div className='websites-container-content2'>
+                      <ul>
+                        <li><b>React</b>, <b>Javascript</b>, <b>PHP</b>, <b>CSS</b>, <b>HTML</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
+                        <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
+                        <li>Experience in integrating third-party <b>APIs</b> and services</li>
+                        <li><b>Cybersecurity</b> best practices</li>
+                        <li>Strong problem-solving skills and analytical thinking</li>
+                        <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
+                        <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
+                        <li>How to ask a great question on Stack Overflow</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Location map display */}
@@ -721,7 +732,7 @@ function App() {
             <footer className="App-header">
               <div className='name-heading'>
                 <h1>Thank you for reading</h1>
-                <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Source Code</a>
+                <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Website Source Code</a>
               </div>
             </footer>
           </div>

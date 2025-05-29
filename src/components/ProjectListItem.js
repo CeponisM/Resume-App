@@ -22,20 +22,34 @@ const ProjectListItem = ({ project }) => {
             className="project-image"
           />
           <p />
-          <motion.a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Visit Project
-          </motion.a>
+          <div className="project-buttons">
+            <motion.a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Visit Project
+            </motion.a>
+            {project.githubUrl && (
+              <motion.a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link github-link"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Code
+              </motion.a>
+            )}
+          </div>
         </div>
         <div className='project-content-right'>
           <div className="project-info">
-            <p>{project.extendedInfo}</p>
+            <p dangerouslySetInnerHTML={{ __html: project.extendedInfo }}></p>
           </div>
           <motion.div
             className="project-improvements"
@@ -43,7 +57,7 @@ const ProjectListItem = ({ project }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            {project.improvements[0]? <h3>Planned Improvements:</h3> : ''}
+            {project.improvements[0] ? <h3>Planned Improvements:</h3> : ''}
             <ul>
               {project.improvements.map((improvement, index) => (
                 <motion.li
