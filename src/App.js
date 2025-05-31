@@ -13,6 +13,10 @@ import motionExtraction from './projects/motionExtraction.jpg';
 import waitlistFrontend from './projects/waitlist.jpg';
 import imgSocial from './projects/img-social.jpg';
 import imgMagic from './projects/imgMagic.gif';
+import windowInstallation from './projects/windowInstallation.jpg';
+import ceponisGutters from './projects/ceponisGutters.jpg';
+import noiseRemoval from './projects/noiseRemoval.jpg';
+import playlistApp from './projects/playlistApp.jpg';
 //Certifications
 import ctiaSECcert from './certifications/ctiaSECcert.jpg';
 import ctiaNETcert from './certifications/ctiaNETcert.jpg';
@@ -89,9 +93,9 @@ function App() {
       ]
     },
     {
-      name: 'Image Social',
+      name: 'VSCO style Social Media',
       url: 'https://MCeponis.com/9',
-      githubUrl: 'https://github.com/CeponisM/react-photo-social',
+      githubUrl: 'https://github.com/CeponisM/Img-Social-Media',
       image: imgSocial,
       info: 'VSCO Social Media Type App',
       extendedInfo: `Image social media app where users can create a profile for posts and find other users via search.
@@ -161,6 +165,7 @@ function App() {
     {
       name: 'Instagram Clone',
       url: 'https://MCeponis.com/1',
+      githubUrl: 'https://github.com/CeponisM/react-photo-social',
       image: instagramCloneImage,
       info: 'Instagram Clone Full Firebase auth, storage, and DB',
       extendedInfo: `Instagram style application where user is able to upload a photo, edit the photo, add caption, and post to a feed.
@@ -207,7 +212,7 @@ function App() {
     {
       name: 'Mandala Generator',
       url: 'https://MCeponis.com/5',
-      githubUrl: 'https://github.com/CeponisM/react-waves',
+      githubUrl: 'https://github.com/CeponisM/react-mandala',
       image: mandala,
       info: 'Custom Mandala Drawing Application in React (WIP)',
       extendedInfo: `Custom manadala application that starts from two points that move outwards until they hit a circular wall then bounce back depending on user defined settings.
@@ -227,6 +232,50 @@ function App() {
       improvements: [
         'Better styling and display improvements',
         'Improved adjustability of second display for testing different effects'
+      ]
+    },
+    {
+      name: 'Noise Removal',
+      url: 'https://MCeponis.com/14',
+      githubUrl: 'https://github.com/CeponisM/noise-extraction',
+      image: noiseRemoval,
+      info: 'Uses microphone audio to cancel-out background noise',
+      extendedInfo: 'Attempt of audio extraction using similiar methods inspired by my motion extraction application. Background noise is recorded to create a profile of the noise for use in active audio playback.',
+      improvements: [
+        'Additional audio adjustment controls for unique physical settings',
+        'Readme creation'
+      ]
+    },
+    {
+      name: 'Window Installation',
+      url: 'https://mediumblue-barracuda-773204.hostingersite.com/',
+      image: windowInstallation,
+      info: 'Wordpress website using default template for Window Installation servicing company (non-production)',
+      extendedInfo: 'Wordpress website using default template for window/roofing installation and servicing company offering raffle for entry into list for customer acquisition. Not currently in production or used by employee change of work.',
+      improvements: [
+      ]
+    },
+    {
+      name: 'Ceponis Gutters',
+      url: 'https://CeponisGutters.com/',
+      image: ceponisGutters,
+      info: 'Single page ReactJS service company website',
+      extendedInfo: 'Simple one page ReactJS website with contact details, service details, estimation price tool, seasonal reminder sign-up, area map, contact buttons, in simple 3 tone color scheme. SEO friendly (sitemaps, robots.txt), old browser fallback support, dynamic and responsive for all devices.',
+      improvements: [
+        'Finish background video that plays beneath the "hero" section',
+        'Change contact buttons to add-contact buttons (make only work for mobile)',
+        'Correct the service-area map to show a radius instead of a single town'
+      ]
+    },
+    {
+      name: 'Playlist Application',
+      url: 'https://MCeponis.com/15',
+      githubUrl: 'https://github.com/CeponisM/playlist-app',
+      image: playlistApp,
+      info: 'Make playlists in one page from multiple websites',
+      extendedInfo: 'Create playlist from multiple sources such as Youtube, SoundCloud, Spotify, Yandex, and local files. Uses zustand state management, framer-motion animations, debouncing using lodash, created in react as the core framework.',
+      improvements: [
+        'Fix the dynamic aspect changes of the application to better accommodate different devices.'
       ]
     }
   ];
