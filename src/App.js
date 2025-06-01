@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 //Project Images
 import bcmcImage from './projects/bcmc.jpg';
 import gauditImage from './projects/gaudit.jpg';
@@ -17,6 +17,7 @@ import windowInstallation from './projects/windowInstallation.jpg';
 import ceponisGutters from './projects/ceponisGutters.jpg';
 import noiseRemoval from './projects/noiseRemoval.jpg';
 import playlistApp from './projects/playlistApp.jpg';
+import vulnScanner from './projects/vulnScanner.jpg';
 //Certifications
 import ctiaSECcert from './certifications/ctiaSECcert.jpg';
 import ctiaNETcert from './certifications/ctiaNETcert.jpg';
@@ -45,15 +46,16 @@ import SidebarIndex from './components/Sidebar/SidebarIndex.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faTableCellsLarge, faList, faSearch, faBugSlash } from '@fortawesome/free-solid-svg-icons';
-// import Particles from 'react-tsparticles';
-//import { loadFull } from "tsparticles";
 import { ThemeProvider } from './ThemeContext';
 import DarkModeToggle from './components/DarkModeToggle';
 import ProjectListItem from './components/ProjectListItem';
 import { CSSTransition } from 'react-transition-group';
 import { ReactTyped } from "react-typed";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import SkillsSection from './components/skills/SkillsSection';
 import AboutSection from './components/about/AboutSection';
+import { debounce } from 'lodash';
+import LazyLoad from 'react-lazyload';
 
 import './App.css';
 
@@ -61,6 +63,10 @@ function App() {
   const [selectedImg, setSelectedImg] = useState(null);
   const [layoutStyle, setLayoutStyle] = useState('list');
   const [searchExpanded, setSearchExpanded] = useState(false);
+  const MemoizedProjectListItem = React.memo(ProjectListItem);
+  const debouncedSetSearchTerm = debounce((value) => setSearchTerm(value), 300);
+  const handleLayoutToggle = useCallback((style) => setLayoutStyle(style), []);
+  const handleImageClick = useCallback((image) => setSelectedImg(image), []);
 
   // Projects list
   const websites = [
@@ -97,7 +103,7 @@ function App() {
       url: 'https://MCeponis.com/9',
       githubUrl: 'https://github.com/CeponisM/Img-Social-Media',
       image: imgSocial,
-      info: 'VSCO Social Media Type App',
+      info: 'Functionally Similar VSCO Social Media App',
       extendedInfo: `Image social media app where users can create a profile for posts and find other users via search.
       Posts are a sequence of images taken via camera that are stitched together and played back as a loop at user selected interval.
       The loop is able to be edited with multiple filters and settings for changing the aesthetic and can then be posted to the users profile.
@@ -129,7 +135,7 @@ function App() {
       info: 'Interactive Music Label Website, Memory/GPU Intensive',
       extendedInfo: `Display of music to showcase artists and their song using information pulled from firestore database.
       Moving background using blend mode with mouse/tilt interactivity for responsive display.
-      Admin panel linked to firebase firestore for adding and retrieving artits and content that show on the website.
+      Admin panel linked to firebase firestore for adding and retrieving artists and content that show on the website.
       Linked to a simple wordpress woocommerce merchendise website.`,
       improvements: [
         'Performance improvements'
@@ -157,7 +163,7 @@ function App() {
       Minimap implementation with zoom and minimap expansion added. Users can see other online users around the map when they are online.
       Movement keeps the player in the center of screen while the whole scene and everything is moved depending on where the user chooses to go.`,
       improvements: [
-        'Custom sprites and image implamentations',
+        'Custom sprites and image implementations',
         'Performance improvements',
         'Completion of unfinished features'
       ]
@@ -170,9 +176,9 @@ function App() {
       info: 'Instagram Clone Full Firebase auth, storage, and DB',
       extendedInfo: `Instagram style application where user is able to upload a photo, edit the photo, add caption, and post to a feed.
       Uses firebase auth, storage, and firestore for the different app features.
-      Post like and comment implamentation, with ability to delete own posts.`,
+      Post like and comment implementation, with ability to delete own posts.`,
       improvements: [
-        'Profile implamentation with user following',
+        'Profile implementation with user following',
         'Improved styling to increase appeal'
       ]
     },
@@ -216,8 +222,8 @@ function App() {
       image: mandala,
       info: 'Custom Mandala Drawing Application in React (WIP)',
       extendedInfo: `Custom manadala application that starts from two points that move outwards until they hit a circular wall then bounce back depending on user defined settings.
-      Presets are implamented so user can view examples of the apps function, and all settings can be changed to the users liking.
-      Many various settings are implamented that change how the mandala is created and displayed to the user.`,
+      Presets are implemented so user can view examples of the apps function, and all settings can be changed to the users liking.
+      Many various settings are implemented that change how the mandala is created and displayed to the user.`,
       improvements: [
         'Styling and setting improvements including better descriptions'
       ]
@@ -228,7 +234,9 @@ function App() {
       githubUrl: 'https://github.com/CeponisM/motion-extraction',
       image: motionExtraction,
       info: 'Camera motion-extraction from concepts found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>, using mobile camera or webcam',
-      extendedInfo: 'Camera motion-extraction using a concept found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>. The app uses a camera that displays twice with a set delay, the second display is inverted and set at half transparancy causing the effect. Watch the video mention to see exactly what can be done with the motion extraction, quite a cool concept I wanted to replicate within a simple app.',
+      extendedInfo: `Camera motion-extraction using a concept found <a href="https://youtu.be/NSS6yAMZF78?si=wYhCukt1q6JXAQnG" target="_blank">HERE</a>. The app uses a camera that displays
+      twice with a set delay, the second display is inverted and set at half transparency causing the effect. Watch the video mention to see
+      exactly what can be done with the motion extraction, quite a cool concept I wanted to replicate within a simple app.`,
       improvements: [
         'Better styling and display improvements',
         'Improved adjustability of second display for testing different effects'
@@ -240,7 +248,8 @@ function App() {
       githubUrl: 'https://github.com/CeponisM/noise-extraction',
       image: noiseRemoval,
       info: 'Uses microphone audio to cancel-out background noise',
-      extendedInfo: 'Attempt of audio extraction using similiar methods inspired by my motion extraction application. Background noise is recorded to create a profile of the noise for use in active audio playback.',
+      extendedInfo: `Attempt of audio extraction using similiar methods inspired by my motion extraction application.
+      Background noise is recorded to create a profile of the noise for use in active audio playback.`,
       improvements: [
         'Additional audio adjustment controls for unique physical settings',
         'Readme creation'
@@ -251,7 +260,8 @@ function App() {
       url: 'https://mediumblue-barracuda-773204.hostingersite.com/',
       image: windowInstallation,
       info: 'Wordpress website using default template for Window Installation servicing company (non-production)',
-      extendedInfo: 'Wordpress website using default template for window/roofing installation and servicing company offering raffle for entry into list for customer acquisition. Not currently in production or used by employee change of work.',
+      extendedInfo: `Wordpress website using default template for window/roofing installation and servicing company offering raffle
+      for entry into list for customer acquisition. Not currently in production or used by employee change of work.`,
       improvements: [
       ]
     },
@@ -260,7 +270,9 @@ function App() {
       url: 'https://CeponisGutters.com/',
       image: ceponisGutters,
       info: 'Single page ReactJS service company website',
-      extendedInfo: 'Simple one page ReactJS website with contact details, service details, estimation price tool, seasonal reminder sign-up, area map, contact buttons, in simple 3 tone color scheme. SEO friendly (sitemaps, robots.txt), old browser fallback support, dynamic and responsive for all devices.',
+      extendedInfo: `Simple one page ReactJS website with contact details, service details, estimation price tool,
+      seasonal reminder sign-up, area map, contact buttons, in simple 3 tone color scheme. SEO friendly (sitemaps, robots.txt),
+      old browser fallback support, dynamic and responsive for all devices.`,
       improvements: [
         'Finish background video that plays beneath the "hero" section',
         'Change contact buttons to add-contact buttons (make only work for mobile)',
@@ -273,9 +285,22 @@ function App() {
       githubUrl: 'https://github.com/CeponisM/playlist-app',
       image: playlistApp,
       info: 'Make playlists in one page from multiple websites',
-      extendedInfo: 'Create playlist from multiple sources such as Youtube, SoundCloud, Spotify, Yandex, and local files. Uses zustand state management, framer-motion animations, debouncing using lodash, created in react as the core framework.',
+      extendedInfo: `Create playlist from multiple sources such as Youtube, SoundCloud, Spotify, Yandex, and local files.
+      Uses zustand state management, framer-motion animations, debouncing using lodash, created in react as the core framework.`,
       improvements: [
         'Fix the dynamic aspect changes of the application to better accommodate different devices.'
+      ]
+    },
+    {
+      name: 'Vulnerability Scanner',
+      url: 'https://github.com/CeponisM/vulnerability_scanner',
+      githubUrl: 'https://github.com/CeponisM/vulnerability_scanner',
+      image: vulnScanner,
+      info: 'Web Application Vulnerability Scanner',
+      extendedInfo: `A Node.js-based automated vulnerability scanner for bug bounty hunting and security testing.
+      Supports concurrent testing, customizable payloads, detailed JSON reporting, and console output with action-specific trigger information.`,
+      improvements: [
+        'Additional checks for false-positives'
       ]
     }
   ];
@@ -362,14 +387,12 @@ function App() {
     }
   ];
 
-  const [filteredProjects, setFilteredProjects] = useState(websites);
   const [searchTerm, setSearchTerm] = useState('');
-  useEffect(() => {
-    const filtered = websites.filter(website =>
+  const filteredProjects = useMemo(() => {
+    return websites.filter(website =>
       website.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       website.info.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredProjects(filtered);
   }, [searchTerm, websites]);
 
   useEffect(() => {
@@ -515,7 +538,7 @@ function App() {
                 </h1>
                 <div className="layout-toggle-container">
                   <button
-                    onClick={() => setLayoutStyle('grid')}
+                    onClick={() => handleLayoutToggle('grid')}
                     className={`project-toggle ${layoutStyle === 'grid' ? 'active' : ''}`}
                     aria-label="Grid View"
                   >
@@ -538,8 +561,7 @@ function App() {
                       <input
                         type="text"
                         placeholder="Search projects..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onChange={(e) => debouncedSetSearchTerm(e.target.value)}
                         className="search-input"
                       />
                     )}
@@ -550,7 +572,7 @@ function App() {
                     {filteredProjects.map((site, index) => (
                       <div className="website-preview" key={site.name || index}>
                         <a href={site.url} target="_blank" rel="noopener noreferrer">
-                          <img src={site.image} alt={`${site.name} Preview`} className="website-image" />
+                          <LazyLoadImage src={site.image} alt={`${site.name} Preview`} clasrc={site.image} className="website-image" />
                           <div className="info-pane">
                             <p className="website-title">{site.name}</p>
                             <p className="website-info" dangerouslySetInnerHTML={{ __html: site.info }}></p>
@@ -562,7 +584,7 @@ function App() {
                 ) : (
                   <div className='websites-container-list-detailed'>
                     {filteredProjects.map((site) => (
-                      <ProjectListItem project={site} />
+                      <MemoizedProjectListItem project={site} />
                     ))}
                   </div>
                 )}
@@ -573,7 +595,7 @@ function App() {
             <header className="websites-container-info2">
               <div className='name-heading2'>
                 <h1>
-                  <ReactTyped strings={["What Certificates Do I Have?"]} typeSpeed={39} loop />
+                  What Certificates Do I Have?
                 </h1>
                 <p />
                 <div className='websites-container-list'>
@@ -634,7 +656,7 @@ function App() {
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>
-                  <ReactTyped strings={["Want to see my Home Lab?"]} typeSpeed={89} loop />
+                  Want to see my Home Lab?
                 </h1>
                 <p />
                 <div className='websites-container-list'>
@@ -754,7 +776,9 @@ function App() {
                   <ReactTyped strings={["Where Am I?"]} typeSpeed={89} loop />
                 </h1>
                 <div className="google-map-container">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowFullScreen={true} loading="lazy"></iframe>
+                  <LazyLoad height={390}>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowFullScreen={true} loading="lazy"></iframe>
+                  </LazyLoad>
                 </div>
               </div>
             </header>
@@ -781,7 +805,7 @@ function App() {
             <footer className="App-header">
               <div className='name-heading'>
                 <h1>Thank you for reading</h1>
-                <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer">View Website Source Code</a>
+                <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer"><FontAwesomeIcon icon={faGithub} /> View Website Source Code</a>
               </div>
             </footer>
           </div>
