@@ -4,10 +4,15 @@
   width: 180px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 100;
   transition: width 0.3s ease-out, top 0.3s ease-out;
   will-change: top, width;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout paint;
 }
 
 /* Minimized state */
@@ -29,11 +34,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .sidebar-index.minimized ul {
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
   display: none;
 }
 
@@ -47,6 +54,7 @@
   height: 28px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
   border: none;
   cursor: pointer;
   display: flex;
@@ -118,13 +126,13 @@
 
 /* Light/Dark theme styling */
 .sidebar-index.light {
-  background-color: rgba(137, 159, 170, 0.9); /* --container-color with transparency */
-  border: 1px solid #ddd;
+  background-color: rgba(137, 159, 170, 0.8); /* --container-color with transparency */
+  border: 2px solid #ddd;
 }
 
 .sidebar-index.dark {
-  background-color: rgba(37, 50, 54, 0.9); /* --container-color with transparency */
-  border: 1px solid #444;
+  background-color: rgba(37, 50, 54, 0.91); /* --container-color with transparency */
+  border: 2px solid #444;
 }
 
 .sidebar-title {
@@ -147,12 +155,12 @@
 }
 
 .sidebar-index.light .sidebar-title {
-  background-color: #253237; /* --heading-color */
+  background-color: rgba(37, 50, 55, 0.91); /* --heading-color */
   color: #E0FBFC; /* --heading-text-color */
 }
 
 .sidebar-index.dark .sidebar-title {
-  background-color: #0e1416; /* --heading-color */
+  background-color: rgba(14, 20, 22, 0.91); /* --heading-color */
   color: #E0FBFC; /* --heading-text-color */
 }
 
@@ -161,6 +169,12 @@
   padding: 0;
   margin: 0;
   transition: opacity 0.2s ease, visibility 0.2s ease;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sidebar-index li {
@@ -171,7 +185,7 @@
   font-size: 0.9rem;
   margin-bottom: 2px;
   border-radius: 0 4px 4px 0;
-  text-shadow: 2px 2px 6px grey;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar-index.light li {

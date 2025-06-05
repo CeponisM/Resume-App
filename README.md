@@ -16,4 +16,3 @@ A personal portfolio website built with React to showcase my projects, certifica
 - **React-Typed**: Animated typing for section headers
 - **CSSTransition**: Smooth transitions for modals
 - **Firebase**: Used in some projects for authentication and data storage
-- **Google Maps**: Embedded map for location display

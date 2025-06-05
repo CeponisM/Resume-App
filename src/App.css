@@ -1,31 +1,42 @@
 /* Light theme vars*/
 :root[data-theme="light"] {
   --background-color: #899faa;
-  --heading-color: #253237;
+  --heading-color: rgba(37, 50, 55, 0.91);
   --heading-text-color: #253237;
   --content-item-color: #9DB4C0;
-  --container-color: #899faa;
+  --container-color: rgba(137, 159, 170, 0.4);
   --text-color: #333;
   --link-color: #007bff;
-  --border-color: #ddd;
+  --border-color: rgba(221, 221, 221, 0.91);
   --image-border-color: #0f0c0c;
 }
 
 /* Dark theme vars*/
 :root[data-theme="dark"] {
   --background-color: #121212;
-  --heading-color: #0e1416;
+  --heading-color: rgba(14, 20, 22, 0.91);
   --heading-text-color: #E0FBFC;
   --content-item-color: #9DB4C0;
-  --container-color: rgb(37, 50, 54);
+  --container-color: rgba(37, 50, 54, 0.91);
   --text-color: #eee;
   --link-color: #1a91da;
-  --border-color: #444;
+  --border-color: rgba(68, 68, 68, 0.91);
   --image-border-color: #666;
 }
 
 html {
   background-color: var(--background-color);
+  background-image: 
+      repeating-linear-gradient(45deg, 
+          rgba(37, 50, 55, 0.02) 0px, 
+          rgba(37, 50, 55, 0.02) 1px, 
+          transparent 1px, 
+          transparent 3px),
+      repeating-linear-gradient(-45deg, 
+          rgba(37, 50, 55, 0.02) 0px, 
+          rgba(37, 50, 55, 0.02) 1px, 
+          transparent 1px, 
+          transparent 3px);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
@@ -35,6 +46,9 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-color);
+  overflow-x: auto;
+  overflow-y: auto;
+  height: auto;
 }
 
 h1,
@@ -75,6 +89,7 @@ h6 {
   border: 44px solid var(--heading-color);
   background-color: var(--container-color);
   position: relative;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -90,6 +105,7 @@ h6 {
   border: 44px solid var(--heading-color);
   background-color: var(--container-color);
   position: relative;
+  border-radius: 8px;
   z-index: 0;
   display: flex;
   flex-direction: column;
@@ -103,7 +119,7 @@ h6 {
 
 .websites-container-content {
   padding-bottom: 33px;
-  font-size: 1.5em;
+  font-size: 1.4em;
   z-index: 2;
   text-align: center;
 }
@@ -131,6 +147,7 @@ h6 {
   cursor: default;
   transition: all 0.3s ease;
   color: var(--heading-text-color);
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.7);
 }
 
 .websites-container-content-addition {
@@ -143,6 +160,7 @@ h6 {
   cursor: default;
   transition: all 0.3s ease;
   color: var(--heading-text-color);
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
 }
 
 .websites-container-content ul li:before {
@@ -173,7 +191,7 @@ h6 {
 .websites-container-content2 {
   position: relative;
   padding-bottom: 33px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: left;
   z-index: 2;
   background-color: var(--container-color);
@@ -183,7 +201,7 @@ h6 {
   /* Remove default list styling */
   list-style-type: none;
   padding-left: 51px;
-  padding-right: 51px;
+  padding-right: 27px;
 }
 
 .websites-container-content2 ul li {
@@ -193,6 +211,7 @@ h6 {
   position: relative;
   cursor: default;
   transition: all 0.3s ease;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .websites-container-content2 ul li:before {
@@ -334,6 +353,7 @@ h6 {
   font-size: 0.9rem;
   color: #666;
   margin: 5px 0 0;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .parallax-container {
@@ -357,7 +377,7 @@ h6 {
 
 .right-column {
   display: flex;
-  max-width: 70%;
+  max-width: 73%;
   flex-direction: column;
 }
 
@@ -427,12 +447,14 @@ h6 {
   text-decoration: none;
   transition: color 0.3s ease;
   z-index: 2;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .social-link-footer {
   text-decoration: none;
   transition: color 0.3s ease;
   z-index: 2;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .social-link-footer:hover {
@@ -473,6 +495,7 @@ h6 {
   background-color: var(--heading-color);
   padding-top: 33px;
   padding-bottom: 33px;
+  border-radius: 8px 8px 0 0;
   color: #E0FBFC;
   text-align: center;
 }
@@ -484,12 +507,14 @@ h6 {
 .name-heading h2 {
   font-size: 5em;
   text-align: center;
+  text-shadow: 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .name-heading2 {
   position: relative;
   text-align: center;
   color: var(--heading-text-color);
+  text-shadow: 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .websites-container-name {
@@ -582,16 +607,16 @@ h6 {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .project-toggle:hover {
-  color: var(--heading-text-color);
+  color: var(--link-color);
   background-color: rgba(114, 57, 57, 0.05);
 }
 
 .project-toggle.active {
-  color: var(--heading-text-color);
+  color: var(--link-color);
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -651,10 +676,10 @@ h6 {
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 1rem;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   background-color: var(--container-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.3s ease;
 }
 
@@ -699,11 +724,13 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-shadow: 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .project-list-item .project-info p {
   margin-bottom: 1rem;
   line-height: 1.6;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.7);
 }
 
 .project-buttons {
@@ -720,11 +747,14 @@ h6 {
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .project-list-item .project-link:hover {
   background-color: var(--link-hover-color);
+  box-shadow: none;
 }
 
 .project-list-item .project-improvements h3 {
@@ -739,6 +769,7 @@ h6 {
 
 .project-list-item .project-improvements li {
   margin-bottom: 0.5rem;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -804,6 +835,11 @@ h6 {
 @media (max-width: 792px) {
   .google-map-container iframe {
     width: 100%;
+  }
+
+  .server-image {
+    top: -100%;
+    right: 16px;
   }
 }
 

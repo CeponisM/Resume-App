@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, memo, useCallback } from 'react';
 //Project Images
 import bcmcImage from './projects/bcmc.jpg';
 import gauditImage from './projects/gaudit.jpg';
@@ -62,18 +62,18 @@ import './App.css';
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
   const [layoutStyle, setLayoutStyle] = useState('list');
-  const [searchExpanded, setSearchExpanded] = useState(false);
+  const [searchExpanded, setSearchExpanded] = useState(true);
   const MemoizedProjectListItem = React.memo(ProjectListItem);
   const debouncedSetSearchTerm = debounce((value) => setSearchTerm(value), 300);
   const handleLayoutToggle = useCallback((style) => setLayoutStyle(style), []);
   const handleImageClick = useCallback((image) => setSelectedImg(image), []);
 
-  // Projects list
+  // Projects
   const websites = [
     {
       name: '2D Img to 2.5D',
-      url: 'http://MCeponis.com/10',
-      githubUrl: 'https://github.com/CeponisM/three_d_img_gen',
+      url: 'https://MCeponis.com/10',
+      githubUrl: 'https://github.com/CeponisM/img-depth-magic',
       image: imgMagic,
       info: 'Turn 2D Image into 2.5D parallax effect, using home-server hosted depth-map conversions',
       extendedInfo: `Users are required to sign-up and log-in using gmail or user/password combination through firebase authentication to prevent abuse of server.
@@ -199,7 +199,7 @@ function App() {
       image: starbucks,
       info: 'Outdated Starbucks React Clone (Missing images)',
       extendedInfo: `Outdated Starbucks website clone that replicated the old Starbucks website. Some assets have become unavaliable since the clone
-      site creation and therefore the website is missing assets. Old project that I do not plan to renew.`,
+      site creation and therefore the website is missing assets. Old project that I do not plan to renew. Made for educational purposes only.`,
       improvements: [
         'Dynamic page updates for mobile and other aspect ratios'
       ]
@@ -414,6 +414,55 @@ function App() {
     });
   }, []);
 
+  // Typed headings
+
+  const TypedName = memo(() => (
+    <ReactTyped
+      strings={["Mantas Čeponis"]}
+      typeSpeed={100}
+      backSpeed={20}
+      loop
+      cursorChar=">"
+      showCursor={true}
+    />
+  ));
+
+  const TypedWhatIDo = memo(() => (
+    <ReactTyped
+      strings={["What Do I Do?"]}
+      typeSpeed={69}
+      loop
+      showCursor={true}
+    />
+  ));
+
+  const TypedWhatIKnow = memo(() => (
+    <ReactTyped
+      strings={["What Do I Know?"]}
+      typeSpeed={102}
+      loop
+      showCursor={true}
+    />
+  ));
+
+  const TypedWhereAmI = memo(() => (
+    <ReactTyped
+      strings={["Where Am I?"]}
+      typeSpeed={89}
+      loop
+      showCursor={true}
+    />
+  ));
+
+  const TypedContact = memo(() => (
+    <ReactTyped
+      strings={["What Is My Contact?"]}
+      typeSpeed={33}
+      loop
+      showCursor={true}
+    />
+  ));
+
   // const particlesInit = async (main) => {
   //   await loadFull(main);
   // };
@@ -500,14 +549,7 @@ function App() {
               <DarkModeToggle />
               <div className='name-heading'>
                 <h2>
-                  <ReactTyped
-                    strings={["Mantas Čeponis"]}
-                    typeSpeed={100}
-                    loop
-                    backSpeed={20}
-                    cursorChar=">"
-                    showCursor={true}
-                  />
+                  <TypedName />
                 </h2>
                 <div className="social-links">
                   {/* Linkedin Social Link */}
@@ -693,7 +735,7 @@ function App() {
                       { name: "HP DL380P Gen8", image: serverDL380, link: "https://www.hpe.com/psnow/doc/c04123238" },
                       { name: "HP Proliant DL360 Gen9", image: serverDL360, link: "https://www.hp.com/hpinfo/newsroom/press_kits/2014/ComputeEra/HP_ProLiantDL360Gen9Server_DataSheet.pdf" },
                       { name: "Dell PowerEdge T620", image: servert620, link: "https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/dell-poweredge-t620-technical-guide.pdf" },
-                      { name: "Dell Precision WorkStation R5500 (2X)", image: serverR5500, link: "https://i.dell.com/sites/content/shared-content/data-sheets/en/Documents/precision-r5500-spec-sheet.pdf" },
+                      { name: "Dell Precision WorkStation R5500 (5X)", image: serverR5500, link: "https://i.dell.com/sites/content/shared-content/data-sheets/en/Documents/precision-r5500-spec-sheet.pdf" },
                       { name: "Dell PowerEdge 1950", image: serverPE1950, link: "https://dl.dell.com/manuals/all-products/esuprt_ser_stor_net/esuprt_poweredge/poweredge-1950_user's%20guide_en-us.pdf" },
                       { name: "NetApp DS4246 Storage 16-Bay", image: serverDS4246, link: "https://www.netapp.com/media/19959-ds-3096.pdf" },
                       { name: "Cisco Catalyst WS-C2960X-48TD", image: serverC2960, link: "https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-2960-x-series-switches/datasheet_c78-728232.html" },
@@ -719,7 +761,7 @@ function App() {
             <div className="websites-container-info">
               <div className='name-heading2'>
                 <h1>
-                  <ReactTyped strings={["What Do I Do?"]} typeSpeed={69} loop />
+                  <TypedWhatIDo />
                 </h1>
                 <div className="split-container">
                   <div className="left-column">
@@ -728,12 +770,12 @@ function App() {
                   <div className="right-column">
                     <div className='websites-container-content'>
                       <ul>
-                        <li>Write quality code that is easy to read and extend</li>
-                        <li>Learn as much as I can, and then some more</li>
-                        <li>Create fun projects in my spare time</li>
-                        <li>Create and maintain documentation of everything I make</li>
-                        <li>Strictly follow security best practices</li>
-                        <li>Never stop learning</li>
+                        <li>Build enterprise-grade applications with security-first architecture</li>
+                        <li>Audit smart contracts and identify critical vulnerabilities in DeFi protocols</li>
+                        <li>Automate security testing with custom vulnerability scanners</li>
+                        <li>Manage enterprise server infrastructure for cybersecurity labs</li>
+                        <li>Contribute to open-source projects and mentor emerging developers</li>
+                        <li>Apply machine learning to solve real-world business challenges</li>
                       </ul>
                     </div>
                   </div>
@@ -745,7 +787,7 @@ function App() {
             <div className="websites-container">
               <div className='name-heading2'>
                 <h1>
-                  <ReactTyped strings={["What Do I Know?"]} typeSpeed={102} loop />
+                  <TypedWhatIKnow />
                 </h1>
                 <div className="split-container">
                   <div className="left-column">
@@ -754,48 +796,16 @@ function App() {
                   <div className="right-column">
                     <div className='websites-container-content2'>
                       <ul>
-                        <li><b>React</b>, <b>Javascript</b>, <b>PHP</b>, <b>CSS</b>, <b>HTML</b>, <b>Java</b>, <b>C++</b>, <b>Python</b>, <b>Solidity</b> and several other programming languages</li>
-                        <li>How to design user friendly UX with <b>React</b> and other front end technologies</li>
-                        <li>Experience in integrating third-party <b>APIs</b> and services</li>
-                        <li><b>Cybersecurity</b> best practices</li>
-                        <li>Strong problem-solving skills and analytical thinking</li>
-                        <li>Virtualization experience with <b>VMware vSphere ESXi</b>, <b>Proxmox VE</b> on Dell and HP enterprise servers</li>
-                        <li>Excellent communication skills, both written and verbal, for effective team collaboration and client interactions</li>
-                        <li>How to ask a great question on Stack Overflow</li>
+                        <li><b>Full-stack mastery</b>: <b>React</b>, <b>TypeScript</b>, <b>Python</b>, <b>Solidity</b> - from frontend to blockchain</li>
+                        <li><b>Security expertise</b>: Penetration testing, vulnerability assessment, threat analysis</li>
+                        <li><b>Enterprise infrastructure</b>: <b>VMware ESXi</b>, <b>Proxmox VE</b>, <b>Docker</b> on Dell PowerEdge & HP servers</li>
+                        <li><b>Blockchain security</b>: Smart contract auditing, honeypot detection, multi-chain analysis</li>
+                        <li><b>Machine learning</b>: <b>TensorFlow</b>, <b>scikit-learn</b> for predictive analytics and automation</li>
+                        <li><b>API integration</b>: <b>REST</b>, <b>WebSocket</b>, <b>GraphQL</b> for seamless third-party connections</li>
+                        <li><b>DevOps proficiency</b>: <b>Docker</b>, containerization, and automated deployment pipelines</li>
+                        <li><b>Business communication</b>: Technical documentation and stakeholder presentations that drive decisions</li>
                       </ul>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Location map display */}
-            <header className="websites-container-info2">
-              <div className='name-heading2'>
-                <h1>
-                  <ReactTyped strings={["Where Am I?"]} typeSpeed={89} loop />
-                </h1>
-                <div className="google-map-container">
-                  <LazyLoad height={390}>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95257.95377701832!2d-88.2442836843529!3d41.74616814647547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e5761e216cd07%3A0x87df9c2c7f203052!2sNaperville%2C%20IL!5e0!3m2!1sen!2sus!4v1705541028433!5m2!1sen!2sus" width="600" height="390" style={{ border: 0 }} title="GMap" allowFullScreen={true} loading="lazy"></iframe>
-                  </LazyLoad>
-                </div>
-              </div>
-            </header>
-
-            {/* Contact information */}
-            <div className="websites-container">
-              <div className='name-heading2'>
-                <h1>
-                  <ReactTyped strings={["What Is My Contact?"]} typeSpeed={33} loop />
-                </h1>
-
-                <div className='websites-container-content2'>
-                  <div className='email'>
-                    <a href="mailto:Hire@MCeponis.com">
-                      <center><p id="email" className="text-center">Hire@MCeponis.com</p></center>
-                    </a>
-                    <center><p>Resume available upon request.</p></center>
                   </div>
                 </div>
               </div>
@@ -805,6 +815,7 @@ function App() {
             <footer className="App-header">
               <div className='name-heading'>
                 <h1>Thank you for reading</h1>
+                <center><p id="email" className="text-center"><a href="mailto:Hire@MCeponis.com" className="email-link">Hire@MCeponis.com</a></p></center>
                 <a href="https://github.com/CeponisM/Resume-App" target="_blank" rel="noopener noreferrer" className="social-link-footer"><FontAwesomeIcon icon={faGithub} /> View Website Source Code</a>
               </div>
             </footer>

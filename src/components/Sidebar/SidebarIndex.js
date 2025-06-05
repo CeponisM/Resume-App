@@ -12,12 +12,10 @@ const SidebarIndex = () => {
     const activeIdRef = useRef('');
     const sections = [
         { id: 'what-built', name: 'What Have I Built?' },
-        { id: 'what-do', name: 'What Do I Do?' },
-        { id: 'what-know', name: 'What Do I Know?' },
         { id: 'certificates', name: 'Certificates' },
         { id: 'homelab', name: 'Home Lab' },
-        { id: 'location', name: 'Location' },
-        { id: 'contact', name: 'Contact' }
+        { id: 'what-do', name: 'What Do I Do?' },
+        { id: 'what-know', name: 'What Do I Know?' },
     ];
 
     // Toggle minimize state
@@ -112,33 +110,32 @@ const SidebarIndex = () => {
         };
 
         // Update sidebar position function - runs with requestAnimationFrame
+        let currentTop = 0;
+        let velocity = 0;
+
         const updateSidebarPosition = () => {
             if (!sidebarRef.current) {
                 rafRef.current = requestAnimationFrame(updateSidebarPosition);
                 return;
             }
 
-            // Get current scroll position
             const scrollY = window.scrollY;
+            const targetTop = Math.max(nameHeadingBottom - 47, scrollY + 100);
 
-            // Update sidebar position - keep it below the name heading
-            const newTop = Math.max(nameHeadingBottom - 47, scrollY + 100);
-            sidebarRef.current.style.top = `${newTop}px`;
+            // Spring physics (simple Verlet integration)
+            const stiffness = 0.1; // lower = smoother
+            const damping = 0.8;   // 0.8–0.95 range is good
+            const delta = targetTop - currentTop;
+            velocity += delta * stiffness;
+            velocity *= damping;
+            currentTop += velocity;
 
-            // Set correct theme from document
+            sidebarRef.current.style.top = `${currentTop}px`;
+
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            sidebarRef.current.className = `sidebar-index ${theme}${isMinimized ? ' minimized' : ''}`;
 
-            // Update classes without affecting minimized state
-            if (isMinimized) {
-                sidebarRef.current.className = `sidebar-index ${theme} minimized`;
-            } else {
-                sidebarRef.current.className = `sidebar-index ${theme}`;
-            }
-
-            // Update active section
             findActiveSection();
-
-            // Continue animation loop
             rafRef.current = requestAnimationFrame(updateSidebarPosition);
         };
 

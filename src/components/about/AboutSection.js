@@ -9,9 +9,9 @@ const AboutSection = () => {
       <img src={profileImage} alt="Your Name" className="profile-image" />
       <div className="about-content">
         <h2>About Me</h2>
-          I'm a passionate developer with expertise in web technologies and a
-          strong focus on creating user-friendly applications. With a background
-          in Computer Science, I bring a unique perspective to every project.
+          I'm a cybersecurity-focused full-stack developer with 8+ years of entrepreneurial experience and
+          30+ active projects spanning blockchain security, machine learning, and enterprise infrastructure.
+          I combine technical innovation with business acumen to deliver scalable solutions that prioritize security and performance.
       </div>
     </div>
   );
