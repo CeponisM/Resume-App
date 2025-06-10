@@ -305,7 +305,7 @@ function App() {
     },
     {
       name: 'Job-app Pipeline',
-      url: 'https://github.com/CeponisM/vulnerability_scanner',
+      url: 'https://MCeponis.com/16',
       githubUrl: 'https://github.com/CeponisM/ml-pipeline',
       image: vulnScanner,
       info: 'Job board scraper, keyword analyzer, automated coverletter writer',
