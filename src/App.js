@@ -302,6 +302,23 @@ function App() {
       improvements: [
         'Additional checks for false-positives'
       ]
+    },
+    {
+      name: 'Job-app Pipeline',
+      url: 'https://github.com/CeponisM/vulnerability_scanner',
+      githubUrl: 'https://github.com/CeponisM/ml-pipeline',
+      image: vulnScanner,
+      info: 'Job board scraper, keyword analyzer, automated coverletter writer',
+      extendedInfo: `A job scraper used to analyze current jobs on the market. Uses modules that are used together in a pipeline style canvas.
+      Example pipline would be start>url-list>scraper>database>keyword-analysis>cover-letter-writer. All information from the scraper is pulled into the database, 
+      the keyword analyzer uses the database to analyze all listings for most used keywords such as technologies and displays in a informative dashboard.
+      The resume writer allows for linking a LLM api key (chat-gpt, claude, grok, gemini) for use in writing a cover letter in a selected style/length for a 
+      specific selected job from the database allowing the user to input their information such as resume, name, and additional information.`,
+      improvements: [
+        'Automation of resume writing to go along with the cover letter module',
+        'Extraction of urls into database by scraper fixes',
+        'Cover Letter writer multiple job selections and final output module to consolidate'
+      ]
     }
   ];
 
