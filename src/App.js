@@ -17,7 +17,8 @@ import windowInstallation from './projects/windowInstallation.jpg';
 import ceponisGutters from './projects/ceponisGutters.jpg';
 import noiseRemoval from './projects/noiseRemoval.jpg';
 import playlistApp from './projects/playlistApp.jpg';
-import vulnScanner from './projects/vulnScanner.jpg';
+import vulnScanner from './projects/vulnScanner.jpg';job-pipeline.jpg
+import jobPipeline from './projects/job-pipeline.jpg';
 //Certifications
 import ctiaSECcert from './certifications/ctiaSECcert.jpg';
 import ctiaNETcert from './certifications/ctiaNETcert.jpg';
@@ -307,7 +308,7 @@ function App() {
       name: 'Job-app Pipeline',
       url: 'https://MCeponis.com/16',
       githubUrl: 'https://github.com/CeponisM/ml-pipeline',
-      image: vulnScanner,
+      image: jobPipeline,
       info: 'Job board scraper, keyword analyzer, automated coverletter writer',
       extendedInfo: `A job scraper used to analyze current jobs on the market. Uses modules that are used together in a pipeline style canvas.
       Example pipline would be start>url-list>scraper>database>keyword-analysis>cover-letter-writer. All information from the scraper is pulled into the database, 
